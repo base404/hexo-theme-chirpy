@@ -1,5 +1,9 @@
 <div class="archive-container">
-  <h1 class="archive-title"><i class="fa-solid fa-box-archive"></i> 文章归档 (<%= site.posts.length %>)</h1>
+  <h1 class="archive-title">
+    <i class="fa-solid fa-box-archive"></i>
+    <span>文章归档</span>
+    <span class="count">( <%= site.posts.length %> 篇 )</span>
+  </h1>
 
   <div class="timeline">
     <% let currentYear = ''; %>
@@ -16,4 +20,13 @@
       </div>
     <% }); %>
   </div>
+
+  <% if (page.total > 1) { %>
+    <nav class="pagination">
+      <%- paginator({
+        prev_text: '<i class="fa-solid fa-chevron-left"></i> 上一页',
+        next_text: '下一页 <i class="fa-solid fa-chevron-right"></i>'
+      }) %>
+    </nav>
+  <% } %>
 </div>

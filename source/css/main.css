@@ -274,3 +274,121 @@ pre {
   font-size: 0.9rem;
 }
 
+/* Timeline Component Styles for Archives */
+.archive-container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.archive-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-primary);
+}
+.archive-title .count {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: normal;
+  font-family: var(--font-mono);
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 7px;
+  width: 2px;
+  background-color: var(--border-color);
+  border-radius: 1px;
+}
+
+.timeline-year {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  margin: 2rem 0 1rem -2.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+}
+
+.timeline-year::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  border: 4px solid var(--bg-card);
+  box-shadow: 0 0 0 2px var(--color-accent);
+  display: inline-block;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.timeline-item:hover {
+  background-color: var(--bg-secondary);
+  transform: translateX(4px);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+  border: 2px solid var(--bg-card);
+  transition: all 0.2s ease;
+}
+
+.timeline-item:hover::before {
+  background-color: var(--color-accent);
+  transform: translateY(-50%) scale(1.4);
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  min-width: 55px;
+}
+
+.timeline-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.2s;
+}
+
+.timeline-title:hover {
+  color: var(--color-accent);
+}
+
+
