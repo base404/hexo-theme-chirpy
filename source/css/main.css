@@ -14,6 +14,8 @@
   --glass-bg: rgba(37, 37, 41, 0.75);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: 16px;
+  --scrollbar-thumb: #3f3f46;
+  --scrollbar-thumb-hover: #71717a;
 }
 
 /* Preset 1: Chirpy Classic Light Mode */
@@ -26,6 +28,8 @@ html[data-scheme="light"] {
   --border-color: #e9ecef;
   --glass-bg: rgba(255, 255, 255, 0.85);
   --glass-border: rgba(0, 0, 0, 0.08);
+  --scrollbar-thumb: #d1d5db;
+  --scrollbar-thumb-hover: #9ca3af;
 }
 
 /* Preset 2: Nordic Minimal */
@@ -74,7 +78,7 @@ body.preset-glassmorphism .right-sidebar-wrapper {
   border: 1px solid var(--glass-border);
 }
 
-/* Layout Reset */
+/* Layout Reset & Sleek Scrollbar */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: var(--font-sans);
@@ -82,6 +86,35 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+}
+
+/* Custom Sleek Scrollbars (Webkit + Firefox) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 a { color: var(--color-accent); text-decoration: none; transition: color 0.2s; }
