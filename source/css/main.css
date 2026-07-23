@@ -501,8 +501,10 @@ a:hover { opacity: 0.85; }
   transition: width 0.1s;
 }
 
-/* Post List & Cover Image Cards */
+/* Post List & Cover Image Cards (100% Clickable Area) */
 .post-card {
+  position: relative;
+  cursor: pointer;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -512,12 +514,29 @@ a:hover { opacity: 0.85; }
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.post-card-overlay-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.post-card a:not(.post-card-overlay-link) {
+  position: relative;
+  z-index: 2;
 }
 
 .post-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  border-color: var(--color-accent);
+}
+
+.post-card:hover .post-card-title a,
+.post-card:hover .read-more {
+  color: var(--color-accent);
 }
 
 .post-card-body {

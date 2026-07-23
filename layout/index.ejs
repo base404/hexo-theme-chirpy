@@ -2,6 +2,8 @@
   <% page.posts.forEach(function(post){ %>
     <% const coverImg = post.cover || post.image; %>
     <article class="post-card <%= coverImg ? 'has-cover' : '' %>" data-title="<%= (post.title || '').toLowerCase() %>" data-content="<%= strip_html(post.content || '').toLowerCase() %>">
+      <a href="<%= url_for(post.path) %>" class="post-card-overlay-link" aria-label="<%= post.title %>"></a>
+
       <div class="post-card-body">
         <h2 class="post-card-title">
           <a href="<%= url_for(post.path) %>"><%= post.title || '无标题' %></a>
@@ -29,17 +31,15 @@
         </div>
 
         <div class="post-card-footer">
-          <a href="<%= url_for(post.path) %>" class="read-more">
+          <span class="read-more">
             阅读全文 <i class="fa-solid fa-arrow-right"></i>
-          </a>
+          </span>
         </div>
       </div>
 
       <% if (coverImg) { %>
         <div class="post-cover-wrapper">
-          <a href="<%= url_for(post.path) %>">
-            <img src="<%= url_for(coverImg) %>" alt="<%= post.title %>" class="post-cover-img" />
-          </a>
+          <img src="<%= url_for(coverImg) %>" alt="<%= post.title %>" class="post-cover-img" />
         </div>
       <% } %>
     </article>
