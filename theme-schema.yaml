@@ -1,0 +1,156 @@
+schema_version: "1.0"
+
+meta:
+  name: "chirpy"
+  display_name: "Chirpy Classic"
+  description: "简约、高颜值且功能丰富的 Hexo 技术博客主题（参考 Chirpy 经典三栏设计）"
+  version: "1.0.0"
+  author: "Hexo CMS Team"
+  homepage: "https://github.com/base404/hexo-theme-chirpy"
+  preview: "https://www.airbozh.cn/"
+  tags: ["三栏布局", "Dark Mode", "TOC", "响应式", "代码复制", "进度条"]
+
+groups:
+  - id: "basic"
+    label: "基础信息与个人资料"
+    icon: "globe"
+    fields:
+      - name: "avatar"
+        label: "侧边栏头像 URL"
+        type: "text"
+        description: "显示在侧边栏顶部的个人头像图片地址"
+        default: "https://cdn.airbozh.cn/blog/avatar.png"
+
+      - name: "author"
+        label: "博主名称"
+        type: "text"
+        description: "侧边栏显示的博主名字"
+        default: "AirboZH"
+
+      - name: "subtitle"
+        label: "座右铭 / 签名"
+        type: "text"
+        description: "头像下方的斜体签名"
+        default: "Stay Hungry, Stay Foolish"
+
+      - name: "favicon"
+        label: "站点 Favicon"
+        type: "text"
+        description: "浏览器标签页小图标"
+        default: "/favicon.ico"
+
+  - id: "style"
+    label: "外观与视觉风格"
+    icon: "palette"
+    fields:
+      - name: "style_preset"
+        label: "设计预设风格 (Preset)"
+        type: "select"
+        description: "基于 awesome-design-skills 挑选的最佳配色方案"
+        default: "chirpy"
+        options:
+          - value: "chirpy"
+            label: "Chirpy Classic (经典暗极灰 + 紫禁青)"
+          - value: "nordic"
+            label: "Nordic Minimal (北欧极简极地蓝)"
+          - value: "cyberpunk"
+            label: "Cyberpunk Neon (赛博霓虹暗黑风)"
+          - value: "glassmorphism"
+            label: "Glassmorphism (磨砂玻璃质感与极光动感)"
+
+      - name: "color_scheme"
+        label: "主题明暗模式"
+        type: "select"
+        description: "控制页面的默认色彩模式"
+        default: "auto"
+        options:
+          - value: "auto"
+            label: "跟随系统 (Auto System)"
+          - value: "light"
+            label: "默认浅色 (Light)"
+          - value: "dark"
+            label: "默认深色 (Dark)"
+
+      - name: "accent_color"
+        label: "品牌强调色 (Accent)"
+        type: "color"
+        description: "链接、选中态高亮与按钮强调色"
+        default: "#7952b3"
+
+  - id: "features"
+    label: "交互功能开关"
+    icon: "sliders"
+    fields:
+      - name: "toc_enabled"
+        label: "文章 TOC 悬浮目录"
+        type: "switch"
+        description: "在文章页右侧悬浮显示层次化的标题导航目录"
+        default: true
+
+      - name: "reading_progress"
+        label: "阅读进度条"
+        type: "switch"
+        description: "在页面顶部显示实时滚动阅读百分比条"
+        default: true
+
+      - name: "code_copy"
+        label: "代码块一键复制按钮"
+        type: "switch"
+        description: "在所有代码高亮块右上角生成快捷复制图标"
+        default: true
+
+      - name: "per_page"
+        label: "首页每页显示文章数"
+        type: "number"
+        default: 10
+        min: 1
+        max: 50
+
+  - id: "comments"
+    label: "评论系统预留"
+    icon: "message-square"
+    fields:
+      - name: "comments_enabled"
+        label: "启用评论区"
+        type: "switch"
+        default: false
+
+      - name: "comments_provider"
+        label: "评论服务提供商"
+        type: "select"
+        default: "disqus"
+        options:
+          - value: "disqus"
+            label: "Disqus"
+          - value: "giscus"
+            label: "Giscus (GitHub Discussions)"
+          - value: "waline"
+            label: "Waline"
+
+      - name: "disqus_shortname"
+        label: "Disqus Shortname"
+        type: "text"
+        default: ""
+
+      - name: "giscus_repo"
+        label: "Giscus 仓库 (owner/repo)"
+        type: "text"
+        default: ""
+
+  - id: "custom_code"
+    label: "自定义代码注入"
+    icon: "code"
+    fields:
+      - name: "head_code"
+        label: "<head> 注入代码"
+        type: "code"
+        language: "html"
+        description: "自定义注入到页面 <head> 区域的统计脚本或 CSS"
+        default: ""
+
+      - name: "footer_code"
+        label: "页脚 </body> 注入代码"
+        type: "code"
+        language: "html"
+        description: "自定义注入到页面尾部的 JS 扩展"
+        default: ""

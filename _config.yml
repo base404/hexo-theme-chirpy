@@ -1,0 +1,21 @@
+avatar: "https://cdn.airbozh.cn/blog/avatar.png"
+author: "AirboZH"
+subtitle: "Stay Hungry, Stay Foolish"
+favicon: "/favicon.ico"
+
+style_preset: "chirpy"
+color_scheme: "auto"
+accent_color: "#7952b3"
+
+toc_enabled: true
+reading_progress: true
+code_copy: true
+per_page: 10
+
+comments_enabled: false
+comments_provider: "disqus"
+disqus_shortname: ""
+giscus_repo: ""
+
+head_code: ""
+footer_code: ""
