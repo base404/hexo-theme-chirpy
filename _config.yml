@@ -1,7 +1,7 @@
 avatar: "/images/avatar.jpg"
 
-author: "AirboZH"
-subtitle: "Stay Hungry, Stay Foolish"
+author: "Your Name"
+subtitle: "Sharing thoughts and knowledge"
 favicon: "/favicon.ico"
 
 style_preset: "chirpy"
@@ -17,31 +17,31 @@ per_page: 10
 social:
   github: "https://github.com"
   rss: "/atom.xml"
-  email: "mailto:example@domain.com"
-  qq: "123456789"
-  wechat: "/images/wechat_qr.png"
+  email: ""
+  qq: ""
+  wechat: ""
 
 # About Page Configuration
 about:
-  name: "Nuoka"
+  name: "Your Name"
   avatar: "/images/avatar.jpg"
-  role: "Full Stack Developer / Technical Writer"
-  bio: "热爱代码、开源与写作，致力于构建极致体验的 Web 应用与静态博客工具。"
+  role: "Developer / Creator"
+  bio: "Stay Hungry, Stay Foolish"
   skills: []
-  description: "欢迎来到我的博客！这里记录了我关于前端架构、后台服务以及工具链设计的探索。"
+  description: "欢迎来到我的博客！这里记录我的技术探索与日常思考。"
 
 # Friends Links Page Configuration
 links_apply_tip: |
   欢迎交换友情链接！请在此页面下方留言或按照以下格式申请：
-  - **站点名称**：Nuoka's Blog
+  - **站点名称**：我的博客名称
   - **站点链接**：https://yourdomain.com
   - **头像 URL**：https://yourdomain.com/avatar.jpg
-  - **站点描述**：Stay Hungry, Stay Foolish
+  - **站点描述**：分享技术与生活
 
 friends: []
 
-# Comments Configuration
-comments_enabled: true
+# Comments Configuration (Disabled by default)
+comments_enabled: false
 comments_provider: "waline"
 disqus_shortname: ""
 giscus_repo: ""

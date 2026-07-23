@@ -25,13 +25,13 @@ groups:
         label: "博主名称"
         type: "text"
         description: "侧边栏显示的博主名字"
-        default: "AirboZH"
+        default: "Your Name"
 
       - name: "subtitle"
         label: "座右铭 / 签名"
         type: "text"
         description: "头像下方的斜体签名"
-        default: "Stay Hungry, Stay Foolish"
+        default: "Sharing thoughts and knowledge"
 
       - name: "favicon"
         label: "站点 Favicon"
@@ -80,7 +80,7 @@ groups:
       - name: "about.name"
         label: "关于页显示名称"
         type: "text"
-        default: "Nuoka"
+        default: "Your Name"
 
       - name: "about.avatar"
         label: "个人头像路径"
@@ -91,29 +91,24 @@ groups:
       - name: "about.role"
         label: "职业 / 角色标签"
         type: "text"
-        default: "Full Stack Developer / Technical Writer"
+        default: "Developer / Creator"
 
       - name: "about.bio"
         label: "一句话简介 / 签名"
         type: "text"
-        default: "热爱代码、开源与写作，致力于构建极致体验的 Web 应用与静态博客工具。"
+        default: "Stay Hungry, Stay Foolish"
 
       - name: "about.skills"
         label: "技能 / 技术栈标签 (Skills)"
         type: "tags"
         description: "关于页展示的个人技能胶囊标签列表"
-        default:
-          - "TypeScript"
-          - "React"
-          - "Node.js"
-          - "Hexo"
-          - "TailwindCSS"
+        default: []
 
       - name: "about.description"
         label: "关于页正文 Markdown 描述"
         type: "textarea"
         description: "可填写 Markdown 格式的个人经历、技术栈与博客介绍"
-        default: "欢迎来到我的博客！这里记录了我关于前端架构、后台服务以及工具链设计的探索。"
+        default: "欢迎来到我的博客！这里记录我的技术探索与日常思考。"
 
   - id: "links"
     label: "友链页面配置 (Friends Links)"
@@ -218,7 +213,7 @@ groups:
         label: "启用评论区"
         type: "switch"
         description: "开启后将在文章、友链及关于页面底部显示评论框"
-        default: true
+        default: false
 
       - name: "comments_provider"
         label: "评论服务提供商"
