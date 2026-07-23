@@ -13,6 +13,14 @@ reading_progress: true
 code_copy: true
 per_page: 10
 
+# Social Contacts (Only configured items will be displayed)
+social:
+  github: "https://github.com"
+  rss: "/atom.xml"
+  email: "mailto:example@domain.com"
+  qq: "123456789"
+  wechat: "/images/wechat_qr.png"
+
 comments_enabled: false
 comments_provider: "disqus"
 disqus_shortname: ""

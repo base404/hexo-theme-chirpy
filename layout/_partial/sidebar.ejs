@@ -3,7 +3,6 @@
     <div class="profile-area">
       <a href="<%= url_for('/') %>" class="avatar-link">
         <img src="<%= url_for(theme.avatar || '/images/avatar.png') %>" alt="<%= theme.author || config.author %>" class="avatar-img">
-
       </a>
       <h1 class="site-title">
         <a href="<%= url_for('/') %>"><%= config.title %></a>
@@ -46,12 +45,37 @@
       </button>
 
       <div class="social-links">
-        <a href="https://github.com" target="_blank" rel="noreferrer" title="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="/atom.xml" target="_blank" title="RSS Feed">
-          <i class="fa-solid fa-rss"></i>
-        </a>
+        <% const social = theme.social || {}; %>
+        <% if (social.github) { %>
+          <a href="<%= social.github %>" target="_blank" rel="noreferrer" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        <% } %>
+
+        <% if (social.rss) { %>
+          <a href="<%= url_for(social.rss) %>" target="_blank" title="RSS Feed">
+            <i class="fa-solid fa-rss"></i>
+          </a>
+        <% } %>
+
+        <% if (social.email) { %>
+          <a href="<%= social.email.startsWith('mailto:') ? social.email : 'mailto:' + social.email %>" target="_blank" title="电子邮箱">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        <% } %>
+
+        <% if (social.qq) { %>
+          <a href="<%= social.qq.startsWith('http') || social.qq.startsWith('tencent') ? social.qq : 'tencent://message/?uin=' + social.qq %>" target="_blank" title="QQ">
+            <i class="fa-brands fa-qq"></i>
+          </a>
+        <% } %>
+
+        <% if (social.wechat || social.wx) { %>
+          <% const wxVal = social.wechat || social.wx; %>
+          <a href="<%= url_for(wxVal) %>" target="_blank" title="微信 WeChat">
+            <i class="fa-brands fa-weixin"></i>
+          </a>
+        <% } %>
       </div>
     </div>
   </div>

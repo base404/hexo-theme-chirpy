@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Interactive Mermaid Diagram Scaling & Control Bar
+  // 6. Interactive Mermaid Diagram Scaling & Control Bar (Default 70% Scale)
   const mermaidBlocks = document.querySelectorAll('figure.highlight.mermaid, code.language-mermaid, pre.mermaid, .mermaid');
 
   if (mermaidBlocks.length > 0) {
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toolbar.innerHTML = `
           <button class="mermaid-btn btn-zoom-in" title="放大"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
           <button class="mermaid-btn btn-zoom-out" title="缩小"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
-          <button class="mermaid-btn btn-reset" title="重置比例 (50%)"><i class="fa-solid fa-rotate-left"></i> 50%</button>
+          <button class="mermaid-btn btn-reset" title="重置比例 (70%)"><i class="fa-solid fa-rotate-left"></i> 70%</button>
           <button class="mermaid-btn btn-fullscreen" title="全屏查看"><i class="fa-solid fa-expand"></i> 全屏</button>
         `;
 
@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
         mermaid.render(id, codeText).then(({ svg }) => {
           svgBox.innerHTML = svg;
 
-          // Default 50% scale reduction as requested
-          let currentScale = 0.5;
+          // Default 70% scale reduction as requested
+          let currentScale = 0.7;
           const updateTransform = () => {
             const svgEl = svgBox.querySelector('svg');
             if (svgEl) {
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
 
           toolbar.querySelector('.btn-reset')?.addEventListener('click', () => {
-            currentScale = 0.5;
+            currentScale = 0.7;
             updateTransform();
           });
 
