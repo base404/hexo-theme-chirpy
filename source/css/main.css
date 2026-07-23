@@ -64,6 +64,7 @@ body.preset-glassmorphism {
 }
 
 body.preset-glassmorphism .post-card,
+body.preset-glassmorphism .post-detail,
 body.preset-glassmorphism .sidebar-wrapper,
 body.preset-glassmorphism .toc-wrapper,
 body.preset-glassmorphism .right-sidebar-wrapper {
@@ -163,9 +164,68 @@ a:hover { opacity: 0.85; }
 }
 .btn-icon { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem; }
 
-/* Main Content */
+/* Main Content Container Limits */
 .main-content { padding: 2.5rem 2rem; }
 .top-nav { display: none; }
+
+.content-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Post Detail Page Card Width */
+.post-detail {
+  max-width: 860px;
+  margin: 0 auto;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2.25rem 2.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-b: 1px solid var(--border-color);
+}
+
+.post-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.post-tags {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-t: 1px dashed var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.tag-badge {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.tag-badge:hover {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
+}
 
 /* Reading Progress Bar */
 .reading-progress {
@@ -404,12 +464,9 @@ a:hover { opacity: 0.85; }
 .toc-content a { color: var(--text-muted); }
 .toc-content a.active { color: var(--color-accent); font-weight: 600; }
 
-/* Hexo Highlight & Code Block Container Styles (Fixed: No duplicate buttons, Light & Dark themes) */
+/* Hexo Highlight & Code Block Container Styles (Enhanced Light & Dark Themes) */
 figure.highlight, pre:not(.highlight pre) {
   position: relative;
-  background-color: var(--code-bg, #18181b);
-  color: var(--code-text, #f4f4f5);
-  border: 1px solid var(--border-color);
   border-radius: 8px;
   margin: 1.5rem 0;
   overflow-x: auto;
@@ -419,16 +476,57 @@ figure.highlight, pre:not(.highlight pre) {
   line-height: 1.6;
 }
 
+/* Light Mode Code Blocks: Crisp border, distinct background, shaded gutter */
 html[data-scheme="light"] figure.highlight, html[data-scheme="light"] pre:not(.highlight pre) {
-  --code-bg: #f8f9fa;
-  --code-text: #24292f;
-  border-color: #e9ecef;
+  background-color: #f3f4f6 !important;
+  color: #1f2937 !important;
+  border: 1px solid #d1d5db !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+html[data-scheme="light"] figure.highlight td.gutter {
+  background-color: #eaedea;
+  border-right: 1px solid #d1d5db;
+  color: #6b7280;
+}
+
+html[data-scheme="light"] .copy-code-btn {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+html[data-scheme="light"] .copy-code-btn:hover {
+  background: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
+}
+
+/* Dark Mode Code Blocks: Deep zinc background, crisp border, shaded gutter */
 html[data-scheme="dark"] figure.highlight, html[data-scheme="dark"] pre:not(.highlight pre) {
-  --code-bg: #18181b;
-  --code-text: #f4f4f5;
-  border-color: #27272a;
+  background-color: #16161a !important;
+  color: #f4f4f5 !important;
+  border: 1px solid #27272a !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+html[data-scheme="dark"] figure.highlight td.gutter {
+  background-color: #121215;
+  border-right: 1px solid #27272a;
+  color: #71717a;
+}
+
+html[data-scheme="dark"] .copy-code-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid #3f3f46;
+  color: #f4f4f5;
+}
+
+html[data-scheme="dark"] .copy-code-btn:hover {
+  background: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
 }
 
 figure.highlight table {
@@ -450,9 +548,7 @@ figure.highlight td.gutter {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
   user-select: none;
-  border-right: 1px solid var(--border-color);
-  color: var(--text-muted);
-  opacity: 0.6;
+  opacity: 0.85;
 }
 
 figure.highlight td.code {
@@ -478,24 +574,18 @@ figure.highlight pre, figure.highlight td pre {
   position: absolute;
   top: 8px;
   right: 8px;
-  background: rgba(120, 120, 120, 0.2);
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
   border-radius: 4px;
   padding: 3px 8px;
   font-size: 0.75rem;
   font-family: var(--font-mono);
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.85;
   transition: all 0.2s ease;
   z-index: 10;
 }
 
 .copy-code-btn:hover {
   opacity: 1;
-  background: var(--color-accent);
-  color: #ffffff;
-  border-color: var(--color-accent);
 }
 
 /* Categories & Tag Cloud Styles */
