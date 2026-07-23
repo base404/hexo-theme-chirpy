@@ -1,0 +1,19 @@
+<div class="archive-container">
+  <h1 class="archive-title"><i class="fa-solid fa-box-archive"></i> 文章归档 (<%= site.posts.length %>)</h1>
+
+  <div class="timeline">
+    <% let currentYear = ''; %>
+    <% page.posts.forEach(function(post){ %>
+      <% const year = date(post.date, 'YYYY'); %>
+      <% if (year !== currentYear) { %>
+        <% currentYear = year; %>
+        <div class="timeline-year"><%= year %></div>
+      <% } %>
+
+      <div class="timeline-item">
+        <span class="timeline-date"><%= date(post.date, 'MM-DD') %></span>
+        <a href="<%= url_for(post.path) %>" class="timeline-title"><%= post.title || '无标题' %></a>
+      </div>
+    <% }); %>
+  </div>
+</div>

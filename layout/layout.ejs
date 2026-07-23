@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="<%= config.language || 'zh-CN' %>" data-preset="<%= theme.style_preset || 'chirpy' %>" data-scheme="<%= theme.color_scheme || 'auto' %>">
+<head>
+  <%- partial('_partial/head') %>
+  <% if (theme.accent_color) { %>
+    <style>:root { --color-accent: <%= theme.accent_color %>; }</style>
+  <% } %>
+</head>
+<body class="chirpy-body preset-<%= theme.style_preset || 'chirpy' %>">
+  <% if (theme.reading_progress !== false) { %>
+    <div id="reading-progress" class="reading-progress"></div>
+  <% } %>
+
+  <div class="app-layout">
+    <%- partial('_partial/sidebar') %>
+
+    <main class="main-content">
+      <header class="top-nav">
+        <button id="sidebar-toggle" class="btn-icon">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <span class="top-title"><%= config.title %></span>
+      </header>
+
+      <div class="content-container">
+        <%- body %>
+      </div>
+
+      <%- partial('_partial/footer') %>
+    </main>
+
+    <% if (is_post() && theme.toc_enabled !== false) { %>
+      <aside class="right-panel">
+        <%- partial('_partial/toc') %>
+      </aside>
+    <% } %>
+  </div>
+
+  <script src="<%= url_for('/js/main.js') %>"></script>
+</body>
+</html>

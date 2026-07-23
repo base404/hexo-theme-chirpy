@@ -1,0 +1,19 @@
+<div class="tag-container">
+  <h1 class="page-title"><i class="fa-solid fa-tag"></i> 标签: #<%= page.tag %> (<%= page.posts.length %>)</h1>
+
+  <div class="posts-list">
+    <% page.posts.forEach(function(post){ %>
+      <article class="post-card">
+        <h2 class="post-card-title">
+          <a href="<%= url_for(post.path) %>"><%= post.title || '无标题' %></a>
+        </h2>
+        <div class="post-meta">
+          <span class="meta-item">
+            <i class="fa-regular fa-calendar"></i>
+            <%= date(post.date, 'YYYY-MM-DD') %>
+          </span>
+        </div>
+      </article>
+    <% }); %>
+  </div>
+</div>

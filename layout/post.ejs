@@ -1,0 +1,39 @@
+<article class="post-detail">
+  <header class="post-header">
+    <h1 class="post-title"><%= page.title %></h1>
+
+    <div class="post-meta">
+      <span class="meta-item">
+        <i class="fa-regular fa-calendar"></i>
+        发布于 <%= date(page.date, 'YYYY-MM-DD') %>
+      </span>
+      <% if (page.updated && page.updated !== page.date) { %>
+        <span class="meta-item">
+          <i class="fa-regular fa-clock"></i>
+          更新于 <%= date(page.updated, 'YYYY-MM-DD') %>
+        </span>
+      <% } %>
+      <% if (page.categories && page.categories.length) { %>
+        <span class="meta-item">
+          <i class="fa-regular fa-folder"></i>
+          <%= page.categories.data[0].name %>
+        </span>
+      <% } %>
+    </div>
+  </header>
+
+  <div class="post-content markdown-body">
+    <%- page.content %>
+  </div>
+
+  <% if (page.tags && page.tags.length) { %>
+    <footer class="post-tags">
+      <i class="fa-solid fa-tags"></i>
+      <% page.tags.forEach(function(tag){ %>
+        <a href="<%= url_for(tag.path) %>" class="tag-badge">#<%= tag.name %></a>
+      <% }); %>
+    </footer>
+  <% } %>
+
+  <%- partial('_partial/comments') %>
+</article>
