@@ -1,0 +1,15 @@
+<div class="tags-container">
+  <h1 class="page-title"><i class="fa-solid fa-tags"></i> 标签云 (<%= site.tags.length %>)</h1>
+
+  <div class="tag-cloud">
+    <%- tagcloud(site.tags, {
+      min_font: 14,
+      max_font: 26,
+      unit: 'px',
+      amount: 200,
+      color: true,
+      start_color: '#94a3b8',
+      end_color: '#7952b3'
+    }) %>
+  </div>
+</div>

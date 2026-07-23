@@ -1,0 +1,57 @@
+<aside id="sidebar" class="chirpy-sidebar">
+  <div class="sidebar-wrapper">
+    <div class="profile-area">
+      <a href="<%= url_for('/') %>" class="avatar-link">
+        <img src="<%= theme.avatar || 'https://cdn.airbozh.cn/blog/avatar.png' %>" alt="<%= theme.author || config.author %>" class="avatar-img">
+      </a>
+      <h1 class="site-title">
+        <a href="<%= url_for('/') %>"><%= config.title %></a>
+      </h1>
+      <p class="site-subtitle"><%= theme.subtitle || config.subtitle %></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li class="nav-item <%= is_home() ? 'active' : '' %>">
+          <a href="<%= url_for('/') %>">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>首页</span>
+          </a>
+        </li>
+        <li class="nav-item <%= page.type === 'categories' || is_category() ? 'active' : '' %>">
+          <a href="<%= url_for('/categories') %>">
+            <i class="fa-solid fa-bars-staggered fa-fw"></i>
+            <span>分类</span>
+          </a>
+        </li>
+        <li class="nav-item <%= page.type === 'tags' || is_tag() ? 'active' : '' %>">
+          <a href="<%= url_for('/tags') %>">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>标签</span>
+          </a>
+        </li>
+        <li class="nav-item <%= page.type === 'archive' || is_archive() ? 'active' : '' %>">
+          <a href="<%= url_for('/archives') %>">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>归档</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button id="mode-toggle" class="btn-icon" title="切换暗黑/浅色模式">
+        <i class="fa-solid fa-adjust"></i>
+      </button>
+
+      <div class="social-links">
+        <a href="https://github.com" target="_blank" rel="noreferrer" title="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="/atom.xml" target="_blank" title="RSS Feed">
+          <i class="fa-solid fa-rss"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</aside>

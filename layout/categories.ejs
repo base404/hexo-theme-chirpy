@@ -1,0 +1,14 @@
+<div class="categories-container">
+  <h1 class="page-title"><i class="fa-solid fa-bars-staggered"></i> 文章分类 (<%= site.categories.length %>)</h1>
+
+  <div class="categories-list">
+    <% site.categories.forEach(function(cat){ %>
+      <div class="category-item-card">
+        <a href="<%= url_for(cat.path) %>" class="category-name">
+          <i class="fa-regular fa-folder"></i> <%= cat.name %>
+          <span class="count">( <%= cat.posts.length %> 篇 )</span>
+        </a>
+      </div>
+    <% }); %>
+  </div>
+</div>
