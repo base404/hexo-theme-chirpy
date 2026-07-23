@@ -36,6 +36,18 @@
             <span>归档</span>
           </a>
         </li>
+        <li class="nav-item <%= page.type === 'links' || is_current('/links') ? 'active' : '' %>">
+          <a href="<%= url_for('/links') %>">
+            <i class="fa-solid fa-link fa-fw"></i>
+            <span>友链</span>
+          </a>
+        </li>
+        <li class="nav-item <%= page.type === 'about' || is_current('/about') ? 'active' : '' %>">
+          <a href="<%= url_for('/about') %>">
+            <i class="fa-solid fa-user fa-fw"></i>
+            <span>关于</span>
+          </a>
+        </li>
       </ul>
     </nav>
 

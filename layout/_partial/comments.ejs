@@ -33,9 +33,20 @@
               crossorigin="anonymous"
               async>
       </script>
+    <% } else if (theme.comments_provider === 'waline' && theme.waline_server_url) { %>
+      <div id="waline"></div>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client@v2/dist/waline.css" />
+      <script type="module">
+        import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@v2/dist/waline.mjs';
+        init({
+          el: '#waline',
+          serverURL: '<%= theme.waline_server_url %>',
+          dark: 'html[data-scheme="dark"]',
+        });
+      </script>
     <% } else { %>
       <div class="comments-placeholder">
-        <p class="text-muted">评论组件已就绪（暂未配置 Shortname 或 Repo）</p>
+        <p class="text-muted"><i class="fa-solid fa-comment-dots"></i> 评论组件已启用（请在主题配置中设置相应的 Disqus Shortname、Giscus Repo 或 Waline ServerURL）</p>
       </div>
     <% } %>
   </section>

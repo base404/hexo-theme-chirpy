@@ -1,0 +1,44 @@
+<div class="links-wrapper">
+  <h1 class="page-title"><i class="fa-solid fa-link"></i> 友情链接</h1>
+
+  <div class="links-container">
+    <% const friends = theme.friends || []; %>
+
+    <% if (friends.length > 0) { %>
+      <div class="friend-cards-grid">
+        <% friends.forEach(function(friend){ %>
+          <a href="<%= friend.url %>" target="_blank" rel="noopener noreferrer" class="friend-card">
+            <div class="friend-avatar-wrapper">
+              <img src="<%= url_for(friend.avatar || '/images/avatar.png') %>" alt="<%= friend.name %>" class="friend-avatar" onError="this.src='/images/avatar.png';" />
+            </div>
+            <div class="friend-info">
+              <h3 class="friend-name"><%= friend.name %></h3>
+              <p class="friend-desc" title="<%= friend.desc %>"><%= friend.desc || '这个家伙很懒，什么也没留下~' %></p>
+            </div>
+          </a>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="links-placeholder">
+        <p>暂无友情链接，欢迎在下方评论区申请换友链！</p>
+      </div>
+    <% } %>
+
+    <% if (theme.links_apply_tip) { %>
+      <div class="links-apply-box">
+        <h4 class="apply-title"><i class="fa-solid fa-circle-info"></i> 申请友链说明</h4>
+        <div class="apply-content">
+          <%- markdown(theme.links_apply_tip) %>
+        </div>
+      </div>
+    <% } %>
+
+    <% if (page.content) { %>
+      <div class="links-content markdown-body">
+        <%- page.content %>
+      </div>
+    <% } %>
+
+    <%- partial('_partial/comments') %>
+  </div>
+</div>
