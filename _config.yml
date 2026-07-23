@@ -27,12 +27,7 @@ about:
   avatar: "/images/avatar.jpg"
   role: "Full Stack Developer / Technical Writer"
   bio: "热爱代码、开源与写作，致力于构建极致体验的 Web 应用与静态博客工具。"
-  skills:
-    - "TypeScript"
-    - "React"
-    - "Node.js"
-    - "Hexo"
-    - "TailwindCSS"
+  skills: []
   description: "欢迎来到我的博客！这里记录了我关于前端架构、后台服务以及工具链设计的探索。"
 
 # Friends Links Page Configuration
@@ -40,22 +35,10 @@ links_apply_tip: |
   欢迎交换友情链接！请在此页面下方留言或按照以下格式申请：
   - **站点名称**：Nuoka's Blog
   - **站点链接**：https://yourdomain.com
-  - **头像 URL**：https://yourdomain.com/avatar.png
+  - **头像 URL**：https://yourdomain.com/avatar.jpg
   - **站点描述**：Stay Hungry, Stay Foolish
 
-friends:
-  - name: "Hexo 官方文档"
-    url: "https://hexo.io"
-    avatar: "https://hexo.io/icon/favicon-192x192.png"
-    desc: "快速、简洁且高效的静态博客生成框架。"
-  - name: "AirboZH 的博客"
-    url: "https://www.airbozh.cn"
-    avatar: "https://www.airbozh.cn/images/avatar.png"
-    desc: "Chirpy 主题原作者与前端技术沉淀。"
-  - name: "GitHub"
-    url: "https://github.com"
-    avatar: "https://github.githubassets.com/favicons/favicon.svg"
-    desc: "全球最大的开源代码托管与协作平台。"
+friends: []
 
 # Comments Configuration
 comments_enabled: true
