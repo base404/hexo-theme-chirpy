@@ -1,0 +1,11 @@
+<% if (theme.toc_enabled !== false && page.content && toc(page.content)) { %>
+  <div id="toc-wrapper" class="toc-wrapper">
+    <div class="toc-title">
+      <i class="fa-solid fa-list-ol"></i>
+      <span>文章目录</span>
+    </div>
+    <div class="toc-content">
+      <%- toc(page.content, { list_number: false, min_depth: 2, max_depth: 4 }) %>
+    </div>
+  </div>
+<% } %>
