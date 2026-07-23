@@ -173,9 +173,16 @@ a:hover { opacity: 0.85; }
   margin: 0 auto;
 }
 
-/* Post Detail Page Card Width */
-.post-detail {
+/* Post Detail Page Width & Overflow Containment */
+.post-detail, .post-content, .markdown-body {
+  width: 100%;
   max-width: 860px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.post-detail {
   margin: 0 auto;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -187,7 +194,7 @@ a:hover { opacity: 0.85; }
 .post-header {
   margin-bottom: 2rem;
   padding-bottom: 1.25rem;
-  border-b: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .post-title {
@@ -201,7 +208,7 @@ a:hover { opacity: 0.85; }
 .post-tags {
   margin-top: 2rem;
   padding-top: 1rem;
-  border-t: 1px dashed var(--border-color);
+  border-top: 1px dashed var(--border-color);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -225,6 +232,20 @@ a:hover { opacity: 0.85; }
   background-color: var(--color-accent);
   color: #ffffff;
   border-color: var(--color-accent);
+}
+
+/* Mermaid Diagram SVG Containment */
+.mermaid, .mermaid-chart {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.mermaid svg, .mermaid-chart svg {
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 /* Reading Progress Bar */
@@ -467,10 +488,13 @@ a:hover { opacity: 0.85; }
 /* Hexo Highlight & Code Block Container Styles (Enhanced Light & Dark Themes) */
 figure.highlight, pre:not(.highlight pre) {
   position: relative;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   border-radius: 8px;
   margin: 1.5rem 0;
   overflow-x: auto;
-  max-width: 100%;
   font-family: var(--font-mono);
   font-size: 0.85rem;
   line-height: 1.6;
@@ -530,8 +554,10 @@ html[data-scheme="dark"] .copy-code-btn:hover {
 }
 
 figure.highlight table {
+  table-layout: fixed;
   border-collapse: collapse;
   width: 100%;
+  max-width: 100%;
   margin: 0;
   border: none;
 }
@@ -543,18 +569,21 @@ figure.highlight td {
 }
 
 figure.highlight td.gutter {
-  width: 40px;
+  width: 44px;
+  min-width: 44px;
+  max-width: 44px;
   text-align: right;
   padding-right: 0.75rem;
-  padding-left: 0.75rem;
+  padding-left: 0.5rem;
   user-select: none;
   opacity: 0.85;
 }
 
 figure.highlight td.code {
+  width: calc(100% - 44px);
+  overflow-x: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  overflow-x: auto;
 }
 
 figure.highlight pre, figure.highlight td pre {
