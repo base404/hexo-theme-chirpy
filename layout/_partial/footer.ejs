@@ -1,26 +1,4 @@
 <footer class="chirpy-footer">
-  <div class="footer-wrapper">
-    <div class="footer-left">
-      <p class="copyright">
-        © <%= new Date().getFullYear() %> <span class="author-name"><%= config.author %></span>
-        <span class="dot">•</span> All Rights Reserved
-      </p>
-      <p class="powered-by">
-        Powered by <a href="https://hexo.io" target="_blank" rel="noreferrer">Hexo</a> & 
-        <a href="https://github.com/base404/hexo-cms" target="_blank" rel="noreferrer">Hexo CMS</a>
-      </p>
-    </div>
-
-    <div class="footer-right">
-      <span class="theme-badge">
-        <i class="fa-solid fa-feather-pointed"></i>
-        Theme <strong>Chirpy Classic</strong>
-        <% if (theme.style_preset) { %>
-          <span class="preset-tag"><%= theme.style_preset %></span>
-        <% } %>
-      </span>
-    </div>
-  </div>
 </footer>
 
 <%- theme.footer_code || '' %>
