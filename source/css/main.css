@@ -136,7 +136,7 @@ a:hover { opacity: 0.85; }
   left: 0;
   right: 0;
   height: 56px;
-  z-index: 200;
+  z-index: 250;
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
   padding: 0 1rem;
@@ -181,7 +181,6 @@ a:hover { opacity: 0.85; }
 
 /* ===== Sidebar Overlay (Mobile) ===== */
 .sidebar-overlay {
-  display: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
@@ -189,11 +188,15 @@ a:hover { opacity: 0.85; }
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .sidebar-overlay.active {
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* ===== Sidebar Close Button (Mobile Only) ===== */
@@ -233,7 +236,6 @@ a:hover { opacity: 0.85; }
 /* Mobile: full-width, sidebar as drawer */
 @media (max-width: 768px) {
   .mobile-topbar { display: flex; }
-  .sidebar-overlay { display: block; }
 
   .app-layout {
     grid-template-columns: 1fr;
