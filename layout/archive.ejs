@@ -1,32 +1,30 @@
-<div class="archive-container">
-  <h1 class="archive-title">
-    <i class="fa-solid fa-box-archive"></i>
-    <span>文章归档</span>
-    <span class="count">( <%= site.posts.length %> 篇 )</span>
-  </h1>
+<div class="archives-wrapper">
+  <h1 class="page-title"><i class="fa-solid fa-box-archive"></i> 文章归档</h1>
 
-  <div class="timeline">
-    <% let currentYear = ''; %>
-    <% page.posts.forEach(function(post){ %>
-      <% const year = date(post.date, 'YYYY'); %>
-      <% if (year !== currentYear) { %>
-        <% currentYear = year; %>
-        <div class="timeline-year"><%= year %></div>
-      <% } %>
+  <div class="archive-container">
+    <div class="timeline">
+      <% let currentYear = ''; %>
+      <% page.posts.forEach(function(post){ %>
+        <% const year = date(post.date, 'YYYY'); %>
+        <% if (year !== currentYear) { %>
+          <% currentYear = year; %>
+          <div class="timeline-year"><%= year %></div>
+        <% } %>
 
-      <div class="timeline-item">
-        <span class="timeline-date"><%= date(post.date, 'MM-DD') %></span>
-        <a href="<%= url_for(post.path) %>" class="timeline-title"><%= post.title || '无标题' %></a>
-      </div>
-    <% }); %>
+        <div class="timeline-item">
+          <span class="timeline-date"><%= date(post.date, 'MM-DD') %></span>
+          <a href="<%= url_for(post.path) %>" class="timeline-title"><%= post.title || '无标题' %></a>
+        </div>
+      <% }); %>
+    </div>
+
+    <% if (page.total > 1) { %>
+      <nav class="pagination">
+        <%- paginator({
+          prev_text: '<i class="fa-solid fa-chevron-left"></i> 上一页',
+          next_text: '下一页 <i class="fa-solid fa-chevron-right"></i>'
+        }) %>
+      </nav>
+    <% } %>
   </div>
-
-  <% if (page.total > 1) { %>
-    <nav class="pagination">
-      <%- paginator({
-        prev_text: '<i class="fa-solid fa-chevron-left"></i> 上一页',
-        next_text: '下一页 <i class="fa-solid fa-chevron-right"></i>'
-      }) %>
-    </nav>
-  <% } %>
 </div>

@@ -531,6 +531,21 @@ a:hover { opacity: 0.85; }
 .post-card-title a { color: var(--text-primary); }
 .post-meta { font-size: 0.75rem; color: var(--text-muted); margin: 0.5rem 0 0.75rem 0; display: flex; gap: 1rem; }
 
+/* Compact Post Card Alignment for Taxonomy Detail Pages */
+.post-card-compact {
+  align-items: center;
+  padding: 1.15rem 1.5rem;
+}
+
+.post-card-compact .post-card-title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.post-card-compact .post-meta {
+  margin: 0;
+}
+
 .post-excerpt { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; }
 
 .read-more { font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem; }
@@ -998,28 +1013,16 @@ html[data-scheme="dark"] .category-item-card {
 }
 
 /* Timeline Component Styles for Archives */
+.archives-wrapper {
+  width: 100%;
+}
+
 .archive-container {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.75rem 2rem;
   margin-top: 1.5rem;
-}
-
-.archive-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--text-primary);
-}
-.archive-title .count {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  font-weight: normal;
-  font-family: var(--font-mono);
 }
 
 .timeline {
