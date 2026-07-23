@@ -120,7 +120,7 @@ body {
 a { color: var(--color-accent); text-decoration: none; transition: color 0.2s; }
 a:hover { opacity: 0.85; }
 
-/* 3-Column Grid Layout */
+/* ===== 3-Column Grid Layout ===== */
 .app-layout {
   display: grid;
   grid-template-columns: 240px 1fr 300px;
@@ -128,24 +128,161 @@ a:hover { opacity: 0.85; }
   min-height: 100vh;
 }
 
+/* ===== Mobile Top Navbar ===== */
+.mobile-topbar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  z-index: 200;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 1rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.mobile-site-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-menu-btn {
+  font-size: 1.15rem;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.mobile-menu-btn:hover {
+  background-color: var(--bg-card);
+}
+
+.mobile-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ===== Sidebar Overlay (Mobile) ===== */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 299;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+}
+
+/* ===== Sidebar Close Button (Mobile Only) ===== */
+.sidebar-close-btn {
+  display: none;
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  font-size: 1.1rem;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.sidebar-close-btn:hover {
+  background-color: #ef4444;
+  color: #fff;
+  border-color: #ef4444;
+}
+
+/* ===== Responsive Breakpoints ===== */
+
+/* Tablet: hide right sidebar */
 @media (max-width: 1180px) {
   .app-layout { grid-template-columns: 240px 1fr; }
   .right-sidebar, .right-panel { display: none; }
 }
 
+/* Mobile: full-width, sidebar as drawer */
 @media (max-width: 768px) {
-  .app-layout { grid-template-columns: 1fr; }
-  .chirpy-sidebar { display: none; }
-  .main-content { padding: 1.25rem; }
+  .mobile-topbar { display: flex; }
+  .sidebar-overlay { display: block; }
+
+  .app-layout {
+    grid-template-columns: 1fr;
+    padding-top: 56px; /* offset for fixed topbar */
+  }
+
+  /* Sidebar becomes an off-canvas drawer */
+  .chirpy-sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
+    z-index: 300;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+    box-shadow: none;
+  }
+
+  .chirpy-sidebar.open {
+    left: 0;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .sidebar-close-btn { display: flex; }
+
+  .sidebar-wrapper {
+    padding-top: 3.5rem; /* room for close button */
+  }
+
+  .main-content {
+    padding: 1.25rem 1rem;
+  }
 }
 
-/* Left Sidebar Styles */
+/* Left Sidebar Base Styles */
 .chirpy-sidebar {
   border-right: 1px solid var(--border-color);
   background-color: var(--bg-secondary);
-  position: sticky;
-  top: 0;
-  height: 100vh;
+}
+
+/* Desktop sidebar: sticky positioning */
+@media (min-width: 769px) {
+  .chirpy-sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
 }
 
 .sidebar-wrapper {
@@ -229,7 +366,6 @@ a:hover { opacity: 0.85; }
 
 /* Main Content Container Limits */
 .main-content { padding: 2.5rem 2rem; }
-.top-nav { display: none; }
 
 .content-container {
   max-width: 900px;
@@ -1362,3 +1498,188 @@ html[data-scheme="dark"] .category-item-card {
   color: var(--text-muted);
   font-size: 0.9rem;
 }
+
+/* ===================================================
+   COMPREHENSIVE RESPONSIVE STYLES
+   =================================================== */
+
+/* --- Small Tablet (≤960px): Adjust content padding --- */
+@media (max-width: 960px) {
+  .main-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .content-container {
+    max-width: 100%;
+  }
+
+  .post-detail {
+    padding: 2rem 1.75rem;
+  }
+}
+
+/* --- Mobile (≤768px): Full responsive overhaul --- */
+@media (max-width: 768px) {
+
+  /* Reading progress bar offset under topbar */
+  .reading-progress {
+    top: 56px;
+  }
+
+  /* Post detail article */
+  .post-detail {
+    padding: 1.25rem 1rem;
+    border-radius: 8px;
+  }
+
+  .post-title {
+    font-size: 1.4rem;
+  }
+
+  /* Markdown content adjustments */
+  .markdown-body table:not(.highlight table) {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .markdown-body pre, figure.highlight {
+    border-radius: 8px;
+    font-size: 0.8rem;
+  }
+
+  /* Post list cards */
+  .post-card {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
+
+  /* Cover image cards: stack vertically */
+  .post-card.has-cover {
+    flex-direction: column;
+  }
+
+  .post-cover-wrapper {
+    width: 100%;
+    height: 180px;
+    order: -1;
+    border-radius: 8px 8px 0 0;
+    flex-shrink: 0;
+    align-self: auto;
+  }
+
+  .post-card.has-cover .post-card-body {
+    padding: 1rem 1.25rem;
+  }
+
+  /* Page titles */
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  /* Category & Tags grid */
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Taxonomy tags cloud */
+  .tags-cloud {
+    gap: 0.5rem;
+  }
+
+  /* Archive layout */
+  .archive-container {
+    padding: 1.25rem 1rem;
+  }
+
+  .timeline-item {
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .timeline-item::before {
+    left: -1.5rem;
+  }
+
+  /* About hero card: stack on mobile */
+  .about-hero-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+  }
+
+  .about-hero-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-skills {
+    justify-content: center;
+  }
+
+  /* Friends grid: single column */
+  .friend-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+
+  /* Links & About containers */
+  .links-container, .about-container {
+    padding: 1.25rem 1rem;
+    border-radius: 8px;
+  }
+
+  /* Compact post card tweak */
+  .post-card-compact {
+    padding: 0.875rem 1rem !important;
+  }
+
+  /* Search input in categories/tags/archive */
+  .search-input-box input {
+    font-size: 0.875rem;
+  }
+}
+
+/* --- Extra Small Mobile (≤480px) --- */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1rem 0.75rem;
+  }
+
+  .post-detail {
+    padding: 1rem 0.875rem;
+    border-radius: 6px;
+  }
+
+  .post-title {
+    font-size: 1.25rem;
+  }
+
+  .post-card-title {
+    font-size: 1.05rem;
+  }
+
+  .post-meta {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .about-avatar-wrapper {
+    width: 90px;
+    height: 90px;
+  }
+
+  .about-name {
+    font-size: 1.35rem;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+
+  .mobile-site-title {
+    font-size: 0.9rem;
+  }
+}
+

@@ -11,19 +11,28 @@
     <div id="reading-progress" class="reading-progress"></div>
   <% } %>
 
+  <!-- Mobile Top Navbar -->
+  <nav class="mobile-topbar" id="mobile-topbar">
+    <button class="mobile-menu-btn btn-icon" id="sidebar-toggle" aria-label="打开菜单">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <a href="<%= url_for('/') %>" class="mobile-site-title"><%= config.title %></a>
+    <div class="mobile-topbar-right">
+      <button id="mode-toggle-mobile" class="btn-icon" title="切换暗黑/浅色模式">
+        <i class="fa-solid fa-adjust"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Sidebar Overlay (Mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
   <div class="app-layout">
     <!-- 1st Column: Left Sidebar Nav -->
     <%- partial('_partial/sidebar') %>
 
     <!-- 2nd Column: Main Content -->
     <main class="main-content">
-      <header class="top-nav">
-        <button id="sidebar-toggle" class="btn-icon">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-        <span class="top-title"><%= config.title %></span>
-      </header>
-
       <div class="content-container">
         <%- body %>
       </div>

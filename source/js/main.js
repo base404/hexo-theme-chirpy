@@ -10,22 +10,73 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Dark / Light Scheme Mode Toggle
+  // 2. Dark / Light Scheme Mode Toggle (Desktop sidebar button + Mobile topbar button)
+  function applySchemeToggle(htmlEl) {
+    const current = htmlEl.getAttribute('data-scheme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    htmlEl.setAttribute('data-scheme', next);
+    localStorage.setItem('chirpy_scheme', next);
+  }
+
   const modeBtn = document.getElementById('mode-toggle');
   if (modeBtn) {
-    modeBtn.addEventListener('click', () => {
-      const htmlEl = document.documentElement;
-      const current = htmlEl.getAttribute('data-scheme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      htmlEl.setAttribute('data-scheme', next);
-      localStorage.setItem('chirpy_scheme', next);
-    });
-
-    const savedScheme = localStorage.getItem('chirpy_scheme');
-    if (savedScheme) {
-      document.documentElement.setAttribute('data-scheme', savedScheme);
-    }
+    modeBtn.addEventListener('click', () => applySchemeToggle(document.documentElement));
   }
+
+  const modeBtnMobile = document.getElementById('mode-toggle-mobile');
+  if (modeBtnMobile) {
+    modeBtnMobile.addEventListener('click', () => applySchemeToggle(document.documentElement));
+  }
+
+  const savedScheme = localStorage.getItem('chirpy_scheme');
+  if (savedScheme) {
+    document.documentElement.setAttribute('data-scheme', savedScheme);
+  }
+
+  // 3. Mobile Sidebar Drawer Toggle
+  const sidebar = document.getElementById('sidebar');
+  const sidebarToggle = document.getElementById('sidebar-toggle');
+  const sidebarClose = document.getElementById('sidebar-close');
+  const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+  function openSidebar() {
+    if (!sidebar || !sidebarOverlay) return;
+    sidebar.classList.add('open');
+    sidebarOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+  }
+
+  function closeSidebar() {
+    if (!sidebar || !sidebarOverlay) return;
+    sidebar.classList.remove('open');
+    sidebarOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener('click', () => {
+      if (sidebar && sidebar.classList.contains('open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+  }
+
+  if (sidebarClose) {
+    sidebarClose.addEventListener('click', closeSidebar);
+  }
+
+  if (sidebarOverlay) {
+    sidebarOverlay.addEventListener('click', closeSidebar);
+  }
+
+  // Close sidebar on window resize if going back to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      closeSidebar();
+    }
+  });
 
   // 3. One-click Code Copy Button (Fixed: No duplicates, top-right placement)
   document.querySelectorAll('figure.highlight:not(.mermaid), pre:not(.highlight pre):not(.mermaid)').forEach((block) => {
