@@ -9,7 +9,7 @@
         <% friends.forEach(function(friend){ %>
           <a href="<%= friend.url %>" target="_blank" rel="noopener noreferrer" class="friend-card">
             <div class="friend-avatar-wrapper">
-              <img src="<%= url_for(friend.avatar || '/images/avatar.png') %>" alt="<%= friend.name %>" class="friend-avatar" onError="this.src='/images/avatar.png';" />
+              <img src="<%= url_for(friend.avatar || '/images/avatar.jpg') %>" alt="<%= friend.name %>" class="friend-avatar" onError="this.onerror=null;this.src='<%= url_for('/images/avatar.jpg') %>';" />
             </div>
             <div class="friend-info">
               <h3 class="friend-name"><%= friend.name %></h3>

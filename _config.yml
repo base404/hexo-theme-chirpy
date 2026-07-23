@@ -1,4 +1,4 @@
-avatar: "/images/avatar.png"
+avatar: "/images/avatar.jpg"
 
 author: "AirboZH"
 subtitle: "Stay Hungry, Stay Foolish"
@@ -24,7 +24,7 @@ social:
 # About Page Configuration
 about:
   name: "Nuoka"
-  avatar: "/images/avatar.png"
+  avatar: "/images/avatar.jpg"
   role: "Full Stack Developer / Technical Writer"
   bio: "热爱代码、开源与写作，致力于构建极致体验的 Web 应用与静态博客工具。"
   skills:
