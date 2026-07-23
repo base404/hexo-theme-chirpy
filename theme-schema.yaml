@@ -82,6 +82,12 @@ groups:
         type: "text"
         default: "Nuoka"
 
+      - name: "about.avatar"
+        label: "个人头像路径"
+        type: "text"
+        description: "例如: /images/avatar.jpg 或网络图片 URL"
+        default: "/images/avatar.jpg"
+
       - name: "about.role"
         label: "职业 / 角色标签"
         type: "text"
@@ -91,6 +97,17 @@ groups:
         label: "一句话简介 / 签名"
         type: "text"
         default: "热爱代码、开源与写作，致力于构建极致体验的 Web 应用与静态博客工具。"
+
+      - name: "about.skills"
+        label: "技能 / 技术栈标签 (Skills)"
+        type: "tags"
+        description: "关于页展示的个人技能胶囊标签列表"
+        default:
+          - "TypeScript"
+          - "React"
+          - "Node.js"
+          - "Hexo"
+          - "TailwindCSS"
 
       - name: "about.description"
         label: "关于页正文 Markdown 描述"
