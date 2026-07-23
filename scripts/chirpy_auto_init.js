@@ -1,7 +1,9 @@
 /* global hexo */
+const fs = require('hexo-fs');
+const path = require('path');
 
 /**
- * Chirpy Classic Theme Zero-CLI Auto-Init Script
+ * Chirpy Classic Theme Zero-CLI Auto-Init Script v2.0
  * 自动配置与虚拟路由扩展：无需用户手动配置根 _config.yml，也无需手动新建 md 文件
  */
 
@@ -30,11 +32,19 @@ hexo.extend.generator.register('chirpy_auto_pages', function (locals) {
     { path: 'links/index.html', layout: 'links', title: '友情链接' }
   ];
 
-  // 避免覆盖用户已经在 source/ 目录下自定义建立的 markdown 页面
-  const existingRoutes = hexo.route.list();
+  // 检查用户是否在 source/ 目录下物理创建了对应 markdown 页面
+  const hasPhysicalSourceFile = (pagePath) => {
+    try {
+      const mdPath = path.join(hexo.source_dir, pagePath.replace(/\.html$/, '.md'));
+      const htmlPath = path.join(hexo.source_dir, pagePath);
+      return fs.existsSync(mdPath) || fs.existsSync(htmlPath);
+    } catch (e) {
+      return false;
+    }
+  };
 
   return pages
-    .filter(p => !existingRoutes.includes(p.path))
+    .filter(p => !hasPhysicalSourceFile(p.path))
     .map(p => ({
       path: p.path,
       data: {
