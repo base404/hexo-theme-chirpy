@@ -156,6 +156,19 @@ a:hover { opacity: 0.85; }
   padding: 2.5rem 1.5rem 1.5rem 1.5rem;
 }
 
+.profile-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.avatar-link {
+  display: inline-block;
+  margin: 0 auto;
+}
+
 .avatar-img {
   width: 96px;
   height: 96px;
@@ -163,12 +176,14 @@ a:hover { opacity: 0.85; }
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
 }
 .avatar-img:hover { transform: scale(1.05); }
 
-.site-title { font-size: 1.25rem; font-weight: 700; margin-top: 1rem; }
+.site-title { font-size: 1.25rem; font-weight: 700; margin-top: 1rem; text-align: center; width: 100%; }
 .site-title a { color: var(--text-primary); }
-.site-subtitle { font-size: 0.75rem; color: var(--text-muted); font-style: italic; margin-top: 0.25rem; }
+.site-subtitle { font-size: 0.75rem; color: var(--text-muted); font-style: italic; margin-top: 0.25rem; text-align: center; width: 100%; }
 
 .sidebar-nav { margin-top: 2rem; flex: 1; }
 .sidebar-nav ul { list-style: none; }
