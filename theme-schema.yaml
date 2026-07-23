@@ -21,7 +21,6 @@ groups:
         description: "主题路径下的相对图片 (如 /images/avatar.png) 或网络图片 URL"
         default: "/images/avatar.png"
 
-
       - name: "author"
         label: "博主名称"
         type: "text"
@@ -39,6 +38,40 @@ groups:
         type: "text"
         description: "浏览器标签页小图标"
         default: "/favicon.ico"
+
+  - id: "social"
+    label: "左侧栏社交联系方式 (配置后才显示)"
+    icon: "share-2"
+    fields:
+      - name: "social.github"
+        label: "GitHub 个人主页 URL"
+        type: "text"
+        description: "例如: https://github.com/your-username (留空则不显示图标)"
+        default: "https://github.com"
+
+      - name: "social.rss"
+        label: "RSS 订阅 Feed 路径"
+        type: "text"
+        description: "例如: /atom.xml (留空则不显示图标)"
+        default: "/atom.xml"
+
+      - name: "social.email"
+        label: "电子邮箱 (Email)"
+        type: "text"
+        description: "例如: mailto:your_name@example.com 或 邮箱地址 (留空则不显示图标)"
+        default: ""
+
+      - name: "social.qq"
+        label: "QQ 号码 / 联系链接"
+        type: "text"
+        description: "例如: 123456789 或 tencent 临时会话链接 (留空则不显示图标)"
+        default: ""
+
+      - name: "social.wechat"
+        label: "微信微信号 / 二维码图片路径"
+        type: "text"
+        description: "例如: /images/wechat_qr.png 或微信号 (留空则不显示图标)"
+        default: ""
 
   - id: "style"
     label: "外观与视觉风格"
