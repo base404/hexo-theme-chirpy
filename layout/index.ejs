@@ -38,7 +38,7 @@
       <% if (coverImg) { %>
         <div class="post-cover-wrapper">
           <a href="<%= url_for(post.path) %>">
-            <img src="<%= url_for(coverImg) %>" alt="<%= post.title %>" class="post-cover-img" onError="this.parentNode.parentNode.style.display='none';" />
+            <img src="<%= url_for(coverImg) %>" alt="<%= post.title %>" class="post-cover-img" />
           </a>
         </div>
       <% } %>
