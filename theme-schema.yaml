@@ -102,6 +102,25 @@ groups:
     label: "友链页面配置 (Friends Links)"
     icon: "globe"
     fields:
+      - name: "friends"
+        label: "友情链接列表"
+        type: "array"
+        description: "每条友链包含：站点名称、网址、头像 URL、简介。可添加/删除/修改。"
+        default: []
+        itemFields:
+          - key: "name"
+            label: "站点名称"
+            placeholder: "My Friend's Blog"
+          - key: "url"
+            label: "网址"
+            placeholder: "https://example.com"
+          - key: "avatar"
+            label: "头像 URL"
+            placeholder: "https://example.com/avatar.png"
+          - key: "desc"
+            label: "一句话简介"
+            placeholder: "热爱分享的技术博主"
+
       - name: "links_apply_tip"
         label: "申请友链说明 (Markdown 格式)"
         type: "textarea"
