@@ -12,8 +12,10 @@
   <% } %>
 
   <div class="app-layout">
+    <!-- 1st Column: Left Sidebar Nav -->
     <%- partial('_partial/sidebar') %>
 
+    <!-- 2nd Column: Main Content -->
     <main class="main-content">
       <header class="top-nav">
         <button id="sidebar-toggle" class="btn-icon">
@@ -29,10 +31,15 @@
       <%- partial('_partial/footer') %>
     </main>
 
-    <% if (is_post() && theme.toc_enabled !== false) { %>
-      <aside class="right-panel">
-        <%- partial('_partial/toc') %>
-      </aside>
+    <!-- 3rd Column: Right Sidebar (Home/List pages) or TOC (Article pages) -->
+    <% if (is_post()) { %>
+      <% if (theme.toc_enabled !== false) { %>
+        <aside class="right-panel">
+          <%- partial('_partial/toc') %>
+        </aside>
+      <% } %>
+    <% } else { %>
+      <%- partial('_partial/right_sidebar') %>
     <% } %>
   </div>
 

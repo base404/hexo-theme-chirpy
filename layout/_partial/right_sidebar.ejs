@@ -1,0 +1,55 @@
+<aside class="right-sidebar">
+  <div class="right-sidebar-wrapper">
+    <!-- 1. Search Box Widget -->
+    <div class="widget widget-search">
+      <div class="search-input-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="sidebar-search-input" placeholder="搜索文章标题..." />
+      </div>
+    </div>
+
+    <!-- 2. Recently Updated Posts Widget -->
+    <div class="widget widget-recent">
+      <h3 class="widget-title"><i class="fa-regular fa-clock"></i> 最近更新</h3>
+      <ul class="recent-posts-list">
+        <% site.posts.sort('-date').slice(0, 5).forEach(function(p){ %>
+          <li class="recent-post-item">
+            <a href="<%= url_for(p.path) %>" class="recent-post-title"><%= p.title || '无标题' %></a>
+            <span class="recent-post-date"><%= date(p.date, 'YYYY-MM-DD') %></span>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+
+    <!-- 3. Trending Tags Cloud Widget -->
+    <div class="widget widget-tags">
+      <h3 class="widget-title"><i class="fa-solid fa-fire"></i> 热门标签</h3>
+      <div class="widget-tag-cloud">
+        <% site.tags.sort('-length').slice(0, 12).forEach(function(t){ %>
+          <a href="<%= url_for(t.path) %>" class="widget-tag-pill">
+            <%= t.name %> <span class="tag-count">(<%= t.length %>)</span>
+          </a>
+        <% }); %>
+      </div>
+    </div>
+
+    <!-- 4. Site Stats Widget -->
+    <div class="widget widget-info">
+      <h3 class="widget-title"><i class="fa-solid fa-chart-simple"></i> 站点信息</h3>
+      <div class="site-stats-grid">
+        <div class="stat-box">
+          <span class="stat-val"><%= site.posts.length %></span>
+          <span class="stat-lbl">文章</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-val"><%= site.categories.length %></span>
+          <span class="stat-lbl">分类</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-val"><%= site.tags.length %></span>
+          <span class="stat-lbl">标签</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>

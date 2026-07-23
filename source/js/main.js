@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modeBtn.addEventListener('click', () => {
       const htmlEl = document.documentElement;
       const current = htmlEl.getAttribute('data-scheme');
-      const next = current === 'light' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
       htmlEl.setAttribute('data-scheme', next);
       localStorage.setItem('chirpy_scheme', next);
     });
@@ -27,16 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 3. One-click Code Copy Button
-  document.querySelectorAll('pre').forEach((pre) => {
+  // 3. One-click Code Copy Button (Fixed: No duplicates, top-right placement)
+  document.querySelectorAll('figure.highlight, pre:not(.highlight pre)').forEach((block) => {
+    if (block.querySelector('.copy-code-btn')) return; // Avoid duplicate injection
+
     const btn = document.createElement('button');
     btn.className = 'copy-code-btn';
     btn.innerText = '复制';
-    pre.appendChild(btn);
+    block.appendChild(btn);
 
     btn.addEventListener('click', () => {
-      const code = pre.querySelector('code')?.innerText || pre.innerText;
-      navigator.clipboard.writeText(code).then(() => {
+      const codeEl = block.querySelector('td.code') || block.querySelector('code') || block;
+      let text = codeEl.innerText || '';
+      // Strip copy button text if accidentally captured
+      text = text.replace(/^复制\n|^已复制!\n/, '').trim();
+      navigator.clipboard.writeText(text).then(() => {
         btn.innerText = '已复制!';
         setTimeout(() => { btn.innerText = '复制'; }, 2000);
       });
@@ -55,6 +60,24 @@ document.addEventListener('DOMContentLoaded', () => {
           const activeLink = document.querySelector(`.toc-content a[href="#${encodeURIComponent(h.id)}"]`) ||
                              document.querySelector(`.toc-content a[href="#${h.id}"]`);
           if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    });
+  }
+
+  // 5. Right Sidebar Live Search Filter
+  const searchInput = document.getElementById('sidebar-search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const posts = document.querySelectorAll('.posts-list .post-card');
+      posts.forEach((card) => {
+        const title = card.getAttribute('data-title') || '';
+        const content = card.getAttribute('data-content') || '';
+        if (!q || title.includes(q) || content.includes(q)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
         }
       });
     });

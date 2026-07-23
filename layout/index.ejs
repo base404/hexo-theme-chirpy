@@ -1,36 +1,47 @@
 <div class="posts-list">
   <% page.posts.forEach(function(post){ %>
-    <article class="post-card">
-      <h2 class="post-card-title">
-        <a href="<%= url_for(post.path) %>"><%= post.title || '无标题' %></a>
-      </h2>
+    <% const coverImg = post.cover || post.image; %>
+    <article class="post-card <%= coverImg ? 'has-cover' : '' %>" data-title="<%= (post.title || '').toLowerCase() %>" data-content="<%= strip_html(post.content || '').toLowerCase() %>">
+      <div class="post-card-body">
+        <h2 class="post-card-title">
+          <a href="<%= url_for(post.path) %>"><%= post.title || '无标题' %></a>
+        </h2>
 
-      <div class="post-meta">
-        <span class="meta-item">
-          <i class="fa-regular fa-calendar"></i>
-          <%= date(post.date, 'YYYY-MM-DD') %>
-        </span>
-        <% if (post.categories && post.categories.length) { %>
+        <div class="post-meta">
           <span class="meta-item">
-            <i class="fa-regular fa-folder"></i>
-            <%= post.categories.data[0].name %>
+            <i class="fa-regular fa-calendar"></i>
+            <%= date(post.date, 'YYYY-MM-DD') %>
           </span>
-        <% } %>
+          <% if (post.categories && post.categories.length) { %>
+            <span class="meta-item">
+              <i class="fa-regular fa-folder"></i>
+              <%= post.categories.data[0].name %>
+            </span>
+          <% } %>
+        </div>
+
+        <div class="post-excerpt">
+          <% if (post.excerpt) { %>
+            <%- post.excerpt %>
+          <% } else { %>
+            <p><%= strip_html(post.content).substring(0, 140) %>...</p>
+          <% } %>
+        </div>
+
+        <div class="post-card-footer">
+          <a href="<%= url_for(post.path) %>" class="read-more">
+            阅读全文 <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
       </div>
 
-      <div class="post-excerpt">
-        <% if (post.excerpt) { %>
-          <%- post.excerpt %>
-        <% } else { %>
-          <p><%= strip_html(post.content).substring(0, 160) %>...</p>
-        <% } %>
-      </div>
-
-      <div class="post-card-footer">
-        <a href="<%= url_for(post.path) %>" class="read-more">
-          阅读全文 <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
+      <% if (coverImg) { %>
+        <div class="post-cover-wrapper">
+          <a href="<%= url_for(post.path) %>">
+            <img src="<%= url_for(coverImg) %>" alt="<%= post.title %>" class="post-cover-img" onError="this.parentNode.parentNode.style.display='none';" />
+          </a>
+        </div>
+      <% } %>
     </article>
   <% }); %>
 </div>
