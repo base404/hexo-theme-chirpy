@@ -1,9 +1,15 @@
-<article class="page-detail">
-  <header class="page-header">
-    <h1 class="page-title"><%= page.title %></h1>
-  </header>
+<% if (page.type === 'categories') { %>
+  <%- partial('categories') %>
+<% } else if (page.type === 'tags') { %>
+  <%- partial('tags') %>
+<% } else { %>
+  <article class="page-detail">
+    <header class="page-header">
+      <h1 class="page-title"><%= page.title %></h1>
+    </header>
 
-  <div class="page-content markdown-body">
-    <%- page.content %>
-  </div>
-</article>
+    <div class="page-content markdown-body">
+      <%- page.content %>
+    </div>
+  </article>
+<% } %>
