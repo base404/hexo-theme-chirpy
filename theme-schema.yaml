@@ -7,7 +7,6 @@ meta:
   version: "2.0.0"
   author: "Hexo CMS Team"
   homepage: "https://github.com/base404/hexo-theme-chirpy"
-  preview: "https://www.airbozh.cn/"
   tags: ["三栏布局", "Dark Mode", "TOC", "响应式", "代码复制", "进度条", "友链", "关于页面", "评论支持"]
 
 groups:
