@@ -920,6 +920,21 @@ html[data-scheme="dark"] .highlight .bullet,
 html[data-scheme="dark"] .highlight .link { color: #7ee787; }
 
 /* Categories & Tag Cloud Styles */
+.page-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.category-container .posts-list,
+.tag-container .posts-list {
+  margin-top: 1.5rem;
+}
+
 .categories-list, .tag-cloud {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
