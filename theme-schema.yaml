@@ -16,10 +16,11 @@ groups:
     icon: "globe"
     fields:
       - name: "avatar"
-        label: "侧边栏头像 URL"
+        label: "侧边栏头像 URL / 相对路径"
         type: "text"
-        description: "显示在侧边栏顶部的个人头像图片地址"
-        default: "https://cdn.airbozh.cn/blog/avatar.png"
+        description: "主题路径下的相对图片 (如 /images/avatar.png) 或网络图片 URL"
+        default: "/images/avatar.png"
+
 
       - name: "author"
         label: "博主名称"

@@ -2,7 +2,8 @@
   <div class="sidebar-wrapper">
     <div class="profile-area">
       <a href="<%= url_for('/') %>" class="avatar-link">
-        <img src="<%= theme.avatar || 'https://cdn.airbozh.cn/blog/avatar.png' %>" alt="<%= theme.author || config.author %>" class="avatar-img">
+        <img src="<%= url_for(theme.avatar || '/images/avatar.png') %>" alt="<%= theme.author || config.author %>" class="avatar-img">
+
       </a>
       <h1 class="site-title">
         <a href="<%= url_for('/') %>"><%= config.title %></a>
