@@ -1,11 +1,12 @@
 <div align="center">
 
-# 🚀 Hexo Theme Chirpy Classic `v2.0`
+# 🚀 Hexo Theme Chirpy Classic `v2.1`
 
-> 简约、高颜值且功能丰富的 Hexo 极简技术博客主题。采用 **Zero-CLI 零配置开箱即用架构**，内置 **Hexo Theme Schema 协议**，支持 Hexo CMS 可视化配置、暗黑模式切换、4 种磨砂玻璃与赛博霓虹视觉预设、Mermaid 架构绘图、TOC 目录及无损全卡片交互。
+> 简约、高颜值且功能丰富的 Hexo 极简技术博客主题。采用 **Zero-CLI 零配置开箱即用架构**，内置 **Hexo Theme Schema 协议** 与 **67 种 Awesome Design Skills 视觉预设库**，支持 Hexo CMS 可视化配置、智能日夜间模式适配、Mermaid 架构绘图、TOC 目录及无损全卡片交互。
 
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg?style=flat-square)](https://github.com/base404/hexo-theme-chirpy/releases/tag/v2.0)
+[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg?style=flat-square)](https://github.com/base404/hexo-theme-chirpy/releases/tag/v2.1)
 [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D%205.0.0-ff007f.svg?style=flat-square)](https://hexo.io/)
+[![Awesome Design Skills](https://img.shields.io/badge/Design%20Skills-67%20Presets-purple.svg?style=flat-square)](https://github.com/bergside/awesome-design-skills)
 [![Zero-CLI](https://img.shields.io/badge/Zero--CLI-Zero%20Config-emerald.svg?style=flat-square)](#-zero-cli-零配置开箱即用)
 [![License](https://img.shields.io/badge/license-MIT-purple.svg?style=flat-square)](./LICENSE)
 
@@ -19,25 +20,27 @@
 
 > [!NOTE]
 > **🎨 设计致谢与借鉴声明 (Credits & Inspiration)**  
-> 本主题的整体版式排版、视觉美学风格与 HSL 配色方案深度借鉴汲取自 **[AirboZH / halo-theme-chirpy](https://github.com/airbozh/halo-theme-chirpy)**。在此对原作者 [AirboZH](https://www.airbozh.cn/) 为前端开源社区贡献的优秀排版设计致以诚挚的感谢！
+> 本主题的整体版式排版、视觉美学风格与 HSL 配色方案深度借鉴汲取自 **[AirboZH / halo-theme-chirpy](https://github.com/airbozh/halo-theme-chirpy)**。在此对原作者 [AirboZH](https://www.airbozh.cn/) 为前端开源社区贡献的优秀排版设计致以诚挚的感谢！  
+> 同时感谢 **[bergside / awesome-design-skills](https://github.com/bergside/awesome-design-skills)** 为本主题提供丰富全面的 67 种 Design System 预设与 Agent Skills。
 
 ---
 
 ## 🌟 核心特性 (Features)
 
-- ⚡ **Zero-CLI 零配置开箱即用 (`v2.0`)**
+- 🎨 **全量内置 67 种 Awesome Design System 视觉预设**
+  - 完美集成 [awesome-design-skills](https://github.com/bergside/awesome-design-skills) 注册库包含的所有 67 种设计系统风格（如 `Bento`, `Brutalism`, `Claymorphism`, `Glassmorphism`, `Material Design`, `Matrix`, `Neobrutalism`, `Neon`, `Paper`, `Retro`, `Shadcn`, `Vintage` 等）；
+  - 支持在 `_config.yml` 中设置 `style_preset: "bento"`，或在 [Hexo CMS](https://github.com/base404/hexo-cms) 可视化编辑器中一键无缝切换！
+- 🤖 **内置 Agentic Skills 系统 (`.agents/skills/`)**
+  - 项目自带 `.agents/skills/` 目录，全量内置 67 种 Design System Skill 规则与 Design Guideline。AI Coding Agent（如 Antigravity, Claude Code, Cursor）在开发时可直接自动读取并遵从该设计规范。
+- 🌓 **智能日夜间模式与单模隐藏保护 (Dark / Light Mode)**
+  - 通用预设（如 `Bento`, `Nordic`, `Shadcn`, `Clean` 等）支持智能日夜间深浅模式自动映射与平滑过渡；
+  - 针对固定暗黑系风格（如 `Matrix`, `Cyberpunk`, `Neon`, `Cosmic` 等），智能自动隐藏模式切换按钮，保持纯粹沉浸式体验。
+- ⚡ **Zero-CLI 零配置开箱即用 (`v2.0+`)**
   - **自动 Mermaid 排除**：无需修改根目录 `_config.yml`，主题自动处理代码高亮转义；
   - **自动虚拟路由生成**：无需运行 `hexo new page` 手动新建 Markdown 页面，`/categories/`, `/tags/`, `/about/`, `/links/` 开箱即用。
 - 🎛️ **Hexo Theme Schema 标准驱动**
   - 无缝兼容 [Hexo CMS](https://github.com/base404/hexo-cms) 可视化编辑器；
   - 动态可视化配置个人资料、技能胶囊标签（Tag Pills）与友情链接卡片。
-- 🎨 **4 种现代视觉配色预设 (Presets)**
-  - `chirpy` — **Chirpy Classic**（经典暗极灰 + 紫禁青）
-  - `nordic` — **Nordic Minimal**（北欧极简极地蓝）
-  - `cyberpunk` — **Cyberpunk Neon**（赛博霓虹暗黑风）
-  - `glassmorphism` — **Glassmorphism**（磨砂玻璃质感与极光动感）
-- 🌓 **全站暗黑 / 明亮模式 (Dark / Light Mode)**
-  - 支持跟随系统配色偏好，支持平滑过渡动画与本地状态持久化。
 - 📊 **Mermaid.js 架构绘图增强**
   - 内置流程图、时序图、甘特图等动态渲染，支持放大、缩小、复位与全屏全屏浏览。
 - 📖 **极致阅读沉浸体验**
@@ -59,12 +62,13 @@ cd themes
 git clone https://github.com/base404/hexo-theme-chirpy.git chirpy
 ```
 
-### 2. 启用主题
+### 2. 启用主题与设置风格预设
 
 修改 Hexo 博客根目录下的 `_config.yml`：
 
 ```yaml
 theme: chirpy
+style_preset: "bento" # 可选: bento, matrix, brutalism, glassmorphism, paper, shadcn 等 67 种预设
 ```
 
 ### 3. 运行体验
@@ -85,10 +89,11 @@ npx hexo s
 1. 打开 **“主题市场 (Theme Market)”** 页面；
 2. 在 **Chirpy Classic** 主题卡片上点击 **【配置 Schema】** 按钮；
 3. 您可以在可视化面板中进行如下实时配置：
+   - 从 67 种预设风格中快速选择与预览；
    - 个人头像 URL 与关于页介绍；
    - 技能胶囊标签 (`about.skills`) 增删；
    - 友情链接卡片 (`friends`) 增删与编辑；
-   - 选择外观预设与评论区开关。
+   - 评论区开关。
 
 所有修改将自动持久化保存至 `_config.chirpy.yml`。
 
@@ -97,4 +102,5 @@ npx hexo s
 ## 📜 开源许可与致谢 (License & Credits)
 
 - **Layout & Design Credit**: Inspired by [halo-theme-chirpy](https://github.com/airbozh/halo-theme-chirpy) created by [AirboZH](https://github.com/airbozh).
+- **Design System Skills Credit**: Integrated from [awesome-design-skills](https://github.com/bergside/awesome-design-skills) created by [bergside](https://github.com/bergside).
 - **License**: Released under the [MIT License](./LICENSE).
