@@ -1,36 +1,82 @@
-avatar: "/images/avatar.jpg"
+# ==============================================================================
+# 🚀 Hexo Theme Chirpy Classic - 配置文件 (_config.yml)
+# 对应 Hexo Theme Schema 协议，支持 Hexo CMS 可视化配置面板与手动修改。
+# ==============================================================================
 
-author: "Your Name"
-subtitle: "Sharing thoughts and knowledge"
-favicon: "/favicon.ico"
+# ------------------------------------------------------------------------------
+# 1. 基础信息与博主资料 (Basic Information)
+# ------------------------------------------------------------------------------
+avatar: "/images/avatar.jpg"        # 侧边栏头像路径 (相对路径或网络 URL)
+author: "Your Name"                 # 博主名称
+subtitle: "Sharing thoughts and knowledge" # 侧边栏一句话签名
+favicon: "/favicon.ico"             # 站点浏览器 Icon 图标路径
 
+# ------------------------------------------------------------------------------
+# 2. 外观与预设风格 (Appearance & Presets)
+# ------------------------------------------------------------------------------
+# style_preset: 视觉预设风格 (内置基于 awesome-design-skills 的 67 种预设)
+# 常用热门预设推荐：
+#   - chirpy: Chirpy Classic (经典暗极灰 + 紫禁青) [默认]
+#   - bento: Bento (便当盒模块网格)
+#   - brutalism: Brutalism (粗犷主义反设计)
+#   - matrix: Matrix (极客黑客绿字 - 单模)
+#   - paper: Paper (羊皮纸复古质感)
+#   - glassmorphism: Glassmorphism (磨砂玻璃质感)
+#   - neon: Neon (发光霓虹 - 单模)
+#   - shadcn: Shadcn (Shadcn/UI 简约风)
+# 全量可选 67 种预设列表：
+#   [ agentic, ant, artistic, basic, bento, bold, brutalism, cafe, claude,
+#     claymorphism, clean, codex, colorful, contemporary, corporate, cosmic,
+#     creative, dithered, doodle, dramatic, editorial, enterprise, expressive,
+#     fantasy, fiction, flat, friendly, futuristic, geometric, glassmorphism,
+#     gradient, immersive, impeccable, levels, lingo, material, matrix, minimal,
+#     modern, mono, neobrutalism, neon, neumorphism, pacman, paper, perspective,
+#     power, premium, professional, pulse, refined, retro, riso, roku, sega,
+#     shadcn, sketch, skeumorphism, sleek, spacious, square, stitch, storytelling,
+#     terracotta, tetris, vibrant, vintage ]
 style_preset: "chirpy"
+
+# color_scheme: 主题明暗模式
+#   - auto: 跟随系统偏好 (Auto System)
+#   - light: 默认浅色 (Light Mode)
+#   - dark: 默认深色 (Dark Mode)
 color_scheme: "auto"
+
+# accent_color: 品牌强调色 (格式: Hex 颜色，如 #7952b3)
 accent_color: "#7952b3"
 
-toc_enabled: true
-reading_progress: true
-code_copy: true
-per_page: 10
+# ------------------------------------------------------------------------------
+# 3. 页面功能开关与布局 (Features & Controls)
+# ------------------------------------------------------------------------------
+toc_enabled: true                   # 是否在文章页右侧悬浮显示 TOC 目录
+reading_progress: true              # 是否在页面顶部显示滚动阅读进度条
+code_copy: true                     # 是否在代码块右上角生成一键复制按钮
+per_page: 10                        # 首页每页显示的文章卡片数量
 
-# Social Contacts (Only configured items will be displayed)
+# ------------------------------------------------------------------------------
+# 4. 侧边栏社交联系方式 (Social Links - 填写后自动在左侧栏底部显示图标)
+# ------------------------------------------------------------------------------
 social:
-  github: "https://github.com"
-  rss: "/atom.xml"
-  email: ""
-  qq: ""
-  wechat: ""
+  github: "https://github.com"      # GitHub 主页 URL (留空不显示)
+  rss: "/atom.xml"                  # RSS 订阅 Feed 路径 (留空不显示)
+  email: ""                         # 邮箱 (例如: mailto:your@email.com，留空不显示)
+  qq: ""                            # QQ (例如: 123456789，留空不显示)
+  wechat: ""                        # 微信微信号或二维码 URL (留空不显示)
 
-# About Page Configuration
+# ------------------------------------------------------------------------------
+# 5. 关于页面配置 (About Page)
+# ------------------------------------------------------------------------------
 about:
   name: "Your Name"
   avatar: "/images/avatar.jpg"
   role: "Developer / Creator"
   bio: "Stay Hungry, Stay Foolish"
-  skills: []
+  skills: []                        # 技能胶囊标签，例如: ["JavaScript", "Node.js", "Vue", "Hexo"]
   description: "欢迎来到我的博客！这里记录我的技术探索与日常思考。"
 
-# Friends Links Page Configuration
+# ------------------------------------------------------------------------------
+# 6. 友情链接页面配置 (Friends Page)
+# ------------------------------------------------------------------------------
 links_apply_tip: |
   欢迎交换友情链接！请在此页面下方留言或按照以下格式申请：
   - **站点名称**：我的博客名称
@@ -38,14 +84,23 @@ links_apply_tip: |
   - **头像 URL**：https://yourdomain.com/avatar.jpg
   - **站点描述**：分享技术与生活
 
-friends: []
+friends: []                         # 友链列表，格式参考下方：
+#   - name: "Hexo 官方文档"
+#     url: "https://hexo.io"
+#     avatar: "https://hexo.io/icon/favicon-192x192.png"
+#     desc: "快速、简洁且高效的静态博客生成框架。"
 
-# Comments Configuration (Disabled by default)
-comments_enabled: false
-comments_provider: "waline"
-disqus_shortname: ""
-giscus_repo: ""
-waline_server_url: ""
+# ------------------------------------------------------------------------------
+# 7. 评论系统配置 (Comments)
+# ------------------------------------------------------------------------------
+comments_enabled: false             # 是否启用评论区
+comments_provider: "waline"         # 评论服务商: waline / giscus / disqus
+waline_server_url: ""               # Waline 服务端 Server URL
+giscus_repo: ""                     # Giscus 仓库名 (如 owner/repo)
+disqus_shortname: ""                # Disqus Shortname
 
-head_code: ""
-footer_code: ""
+# ------------------------------------------------------------------------------
+# 8. 自定义 HTML 代码注入 (Custom Code Injection)
+# ------------------------------------------------------------------------------
+head_code: ""                       # 注入到 <head> 区域的代码 (如 Google Analytics 统计)
+footer_code: ""                     # 注入到 </body> 结束前的代码 (如自定义 JS)
