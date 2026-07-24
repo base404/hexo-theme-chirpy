@@ -3441,3 +3441,238 @@ html[data-scheme="dark"][data-preset="vintage"] {
   --glass-bg: #292524;
   --glass-border: #44403C;
 }
+
+/* ===== Preset: Sleek (时尚流畅) ===== */
+body.preset-sleek,
+html[data-preset="sleek"] {
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --color-accent: #0284c7;
+  --border-color: #e2e8f0;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(2, 132, 199, 0.15);
+}
+html[data-scheme="dark"] body.preset-sleek,
+html[data-scheme="dark"][data-preset="sleek"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --color-accent: #38bdf8;
+  --border-color: #334155;
+  --glass-bg: rgba(30, 41, 59, 0.85);
+  --glass-border: rgba(56, 189, 248, 0.2);
+}
+body.preset-sleek .post-card,
+body.preset-sleek .sidebar-wrapper,
+body.preset-sleek .right-sidebar-wrapper,
+body.preset-sleek .toc-wrapper {
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.preset-sleek .post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -5px rgba(2, 132, 199, 0.15);
+}
+
+/* ===== Preset: Spacious (宽敞留白) ===== */
+body.preset-spacious,
+html[data-preset="spacious"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #1e293b;
+  --text-muted: #64748b;
+  --color-accent: #6366f1;
+  --border-color: #e2e8f0;
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 0, 0, 0.06);
+}
+html[data-scheme="dark"] body.preset-spacious,
+html[data-scheme="dark"][data-preset="spacious"] {
+  --bg-primary: #090d16;
+  --bg-secondary: #111827;
+  --bg-card: #111827;
+  --text-primary: #f3f4f6;
+  --text-muted: #9ca3af;
+  --color-accent: #818cf8;
+  --border-color: #1f2937;
+  --glass-bg: rgba(17, 24, 39, 0.9);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+body.preset-spacious .post-card {
+  padding: 2.25rem 2.5rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  line-height: 1.8;
+}
+body.preset-spacious .app-layout {
+  gap: 2rem;
+}
+body.preset-spacious .content-container {
+  max-width: 900px;
+}
+
+/* ===== Preset: Square (典雅高贵) ===== */
+body.preset-square,
+html[data-preset="square"] {
+  --bg-primary: #faf8f5;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #1c1917;
+  --text-muted: #78716c;
+  --color-accent: #b45309;
+  --border-color: #e7e5e4;
+  --glass-bg: #ffffff;
+  --glass-border: #d6d3d1;
+}
+html[data-scheme="dark"] body.preset-square,
+html[data-scheme="dark"][data-preset="square"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1c1c1c;
+  --bg-card: #1c1c1c;
+  --text-primary: #f5f5f4;
+  --text-muted: #a8a29e;
+  --color-accent: #d4af37;
+  --border-color: #2a2a2a;
+  --glass-bg: #1c1c1c;
+  --glass-border: #333333;
+}
+body.preset-square .post-card,
+body.preset-square .sidebar-wrapper,
+body.preset-square .right-sidebar-wrapper,
+body.preset-square .toc-wrapper,
+body.preset-square img,
+body.preset-square button,
+body.preset-square input,
+body.preset-square .tag-item,
+body.preset-square .category-item {
+  border-radius: 0px !important;
+}
+body.preset-square .post-card {
+  border: 1px solid var(--border-color);
+  box-shadow: none;
+  transition: border-color 0.2s ease;
+}
+body.preset-square .post-card:hover {
+  border-color: var(--color-accent);
+}
+body.preset-square h1,
+body.preset-square h2,
+body.preset-square h3,
+body.preset-square .site-title {
+  font-family: Georgia, 'Times New Roman', serif, var(--font-sans);
+  letter-spacing: 0.03em;
+}
+
+/* ===== Preset Enhancements: Bento (便当盒模块网格) ===== */
+body.preset-bento .post-card,
+body.preset-bento .sidebar-wrapper,
+body.preset-bento .right-sidebar-wrapper,
+body.preset-bento .toc-wrapper,
+html[data-preset="bento"] .post-card,
+html[data-preset="bento"] .sidebar-wrapper,
+html[data-preset="bento"] .toc-wrapper {
+  border-radius: 20px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+}
+body.preset-bento .post-card:hover {
+  transform: scale(1.015);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ===== Preset Enhancements: Neobrutalism (新粗犷主义) ===== */
+body.preset-neobrutalism .post-card,
+body.preset-neobrutalism .sidebar-wrapper,
+body.preset-neobrutalism .right-sidebar-wrapper,
+body.preset-neobrutalism .toc-wrapper,
+html[data-preset="neobrutalism"] .post-card,
+html[data-preset="neobrutalism"] .sidebar-wrapper,
+html[data-preset="neobrutalism"] .toc-wrapper {
+  border: 3px solid var(--text-primary) !important;
+  box-shadow: 5px 5px 0px var(--text-primary) !important;
+  border-radius: 6px !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+body.preset-neobrutalism .post-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px var(--text-primary) !important;
+}
+
+/* ===== Preset Enhancements: Claymorphism & Lingo (黏土 3D 浮雕) ===== */
+body.preset-claymorphism .post-card,
+body.preset-claymorphism .sidebar-wrapper,
+body.preset-claymorphism .toc-wrapper,
+body.preset-lingo .post-card,
+body.preset-lingo .sidebar-wrapper,
+html[data-preset="claymorphism"] .post-card,
+html[data-preset="lingo"] .post-card {
+  border-radius: 24px !important;
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.08), inset -4px -4px 8px rgba(0, 0, 0, 0.04), inset 4px 4px 8px rgba(255, 255, 255, 0.6) !important;
+  border: none !important;
+}
+
+/* ===== Preset Enhancements: Claude, Editorial, Paper (纸本/学术/杂志) ===== */
+body.preset-claude, body.preset-editorial, body.preset-paper,
+html[data-preset="claude"], html[data-preset="editorial"], html[data-preset="paper"] {
+  font-family: Georgia, 'Times New Roman', serif, var(--font-sans);
+}
+body.preset-claude .post-card, body.preset-editorial .post-card, body.preset-paper .post-card {
+  border-radius: 4px !important;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* ===== Preset Enhancements: Shadcn, Ant, Minimal (极简工程风格) ===== */
+body.preset-shadcn .post-card,
+body.preset-shadcn .sidebar-wrapper,
+body.preset-shadcn .toc-wrapper,
+body.preset-ant .post-card,
+body.preset-ant .sidebar-wrapper,
+html[data-preset="shadcn"] .post-card,
+html[data-preset="ant"] .post-card {
+  border-radius: 8px !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* ===== Preset Enhancements: Matrix, Mono, Sega, Pacman, Tetris (极客/8-Bit 像素) ===== */
+body.preset-matrix, body.preset-mono, body.preset-sega, body.preset-pacman, body.preset-tetris,
+html[data-preset="matrix"], html[data-preset="mono"], html[data-preset="sega"], html[data-preset="pacman"], html[data-preset="tetris"] {
+  font-family: 'JetBrains Mono', 'Courier New', monospace, var(--font-mono);
+}
+body.preset-matrix .post-card, body.preset-mono .post-card, body.preset-sega .post-card, body.preset-pacman .post-card, body.preset-tetris .post-card {
+  border-radius: 0px !important;
+  border: 1px solid var(--color-accent) !important;
+}
+body.preset-matrix .post-card {
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.15) !important;
+}
+
+/* ===== Preset Enhancements: Neon, Cyberpunk, Cosmic (发光霓虹/赛博) ===== */
+body.preset-neon .post-card, body.preset-cyberpunk .post-card, body.preset-cosmic .post-card,
+html[data-preset="neon"] .post-card, html[data-preset="cyberpunk"] .post-card, html[data-preset="cosmic"] .post-card {
+  border-radius: 12px !important;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25) !important;
+  border: 1px solid var(--color-accent) !important;
+}
+body.preset-neon .post-card:hover {
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.5) !important;
+}
+
+/* ===== Preset Enhancements: Sketch & Doodle (铅笔手绘/涂鸦) ===== */
+body.preset-sketch .post-card, body.preset-doodle .post-card,
+html[data-preset="sketch"] .post-card, html[data-preset="doodle"] .post-card {
+  border: 2px dashed var(--border-color) !important;
+  border-radius: 12px !important;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.05) !important;
+}
+
+
