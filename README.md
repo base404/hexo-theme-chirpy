@@ -4,7 +4,7 @@
 
 > 简约、高颜值且功能丰富的 Hexo 极简技术博客主题。采用 **Zero-CLI 零配置开箱即用架构**，内置 **Hexo Theme Schema 协议** 与 **67 种 Awesome Design Skills 视觉预设库**，支持 Hexo CMS 可视化配置、智能日夜间模式适配、Mermaid 架构绘图、TOC 目录及无损全卡片交互。
 
-[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg?style=flat-square)](https://github.com/base404/hexo-theme-chirpy/releases/tag/v2.1)
+[![Version](https://img.shields.io/badge/version-2.1.1-blue.svg?style=flat-square)](https://github.com/base404/hexo-theme-chirpy/releases/tag/v2.1.1)
 [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D%205.0.0-ff007f.svg?style=flat-square)](https://hexo.io/)
 [![Awesome Design Skills](https://img.shields.io/badge/Design%20Skills-67%20Presets-purple.svg?style=flat-square)](https://github.com/bergside/awesome-design-skills)
 [![Zero-CLI](https://img.shields.io/badge/Zero--CLI-Zero%20Config-emerald.svg?style=flat-square)](#-zero-cli-零配置开箱即用)
@@ -55,11 +55,16 @@
 
 ### 📋 开发与运行环境 (Environment)
 
-本主题在以下环境中经过完整测试与开发：
+本主题在以下标准开发环境中完成构建、交互测试与功能验证：
 
-- **Node.js**: `v24.16.0` (推荐 `>= 18.0.0`)
-- **npm**: `v12.0.1` (推荐 `>= 9.0.0`)
-- **Hexo**: `>= 5.0.0` (推荐 Hexo 7.x)
+| 环境 / 工具 | 本地开发测试版本 | 兼容推荐要求 |
+| :--- | :--- | :--- |
+| 🟢 **Node.js** | `v24.16.0` | `>= 18.0.0` (LTS) |
+| 📦 **npm** | `v12.0.1` | `>= 9.0.0` |
+| 💻 **操作系统 (OS)** | `Windows 11 (x64)` | Windows / macOS / Linux |
+| 🔧 **Git** | `v2.55.0` | `>= 2.20.0` |
+| ⚡ **Hexo** | `>= 5.0.0` | 推荐 `Hexo 7.x` |
+
 
 ### 1. 下载主题
 
