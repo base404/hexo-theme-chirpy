@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title><% if (page.title) { %><%= page.title %> | <% } %><%= config.title %></title>
+<title><% if (page.title) { %><%= page.title %> | <% } %><%= theme.title || config.title %></title>
 
 <link rel="shortcut icon" href="<%= url_for(theme.favicon || '/favicon.ico') %>">
 <link rel="icon" href="<%= url_for(theme.favicon || '/favicon.ico') %>">

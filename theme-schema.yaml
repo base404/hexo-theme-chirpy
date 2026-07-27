@@ -14,6 +14,12 @@ groups:
     label: "基础信息与个人资料"
     icon: "globe"
     fields:
+      - name: "title"
+        label: "网站标题 / 网页 Title"
+        type: "text"
+        description: "浏览器标签页和站点顶栏显示的网站名称 (留空则复用 Hexo 站点主标题)"
+        default: ""
+
       - name: "avatar"
         label: "侧边栏头像 URL / 相对路径"
         type: "text"
