@@ -38,9 +38,16 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client@v2/dist/waline.css" />
       <script type="module">
         import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@v2/dist/waline.mjs';
+        let rawUrl = '<%= theme.waline_server_url %>'.trim();
+        try {
+          if (rawUrl) {
+            const u = new URL(rawUrl.startsWith('http') ? rawUrl : 'https://' + rawUrl);
+            rawUrl = u.origin;
+          }
+        } catch(e) {}
         init({
           el: '#waline',
-          serverURL: '<%= theme.waline_server_url %>',
+          serverURL: rawUrl,
           dark: 'html[data-scheme="dark"]',
         });
       </script>

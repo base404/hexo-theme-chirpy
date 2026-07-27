@@ -400,7 +400,7 @@ groups:
       - name: "waline_server_url"
         label: "Waline 服务端 URL"
         type: "text"
-        description: "例如: https://your-waline-instance.vercel.app"
+        description: "只需填写 Waline 服务端根域名 URL (例如: https://blog-waline...vercel.app)，无需带 /comment 或参数"
         default: ""
 
       - name: "disqus_shortname"
