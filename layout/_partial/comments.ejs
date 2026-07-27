@@ -39,12 +39,13 @@
       <script type="module">
         import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@v2/dist/waline.mjs';
         let rawUrl = '<%= theme.waline_server_url %>'.trim();
-        try {
-          if (rawUrl) {
+        if (rawUrl) {
+          rawUrl = rawUrl.replace(/\/comment.*$/i, '').replace(/\/+$/, '');
+          try {
             const u = new URL(rawUrl.startsWith('http') ? rawUrl : 'https://' + rawUrl);
             rawUrl = u.origin;
-          }
-        } catch(e) {}
+          } catch(e) {}
+        }
         init({
           el: '#waline',
           serverURL: rawUrl,
