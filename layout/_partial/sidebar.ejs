@@ -9,7 +9,7 @@
         <img src="<%= url_for(theme.avatar || '/images/avatar.png') %>" alt="<%= theme.author || config.author %>" class="avatar-img">
       </a>
       <h1 class="site-title">
-        <a href="<%= url_for('/') %>"><%= config.title %></a>
+        <a href="<%= url_for('/') %>"><%= theme.author || config.author || config.title %></a>
       </h1>
       <p class="site-subtitle"><%= theme.subtitle || config.subtitle %></p>
     </div>
