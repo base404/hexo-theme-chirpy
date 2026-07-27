@@ -6,7 +6,7 @@
   <div class="sidebar-wrapper">
     <div class="profile-area">
       <a href="<%= url_for('/') %>" class="avatar-link">
-        <img src="<%= url_for(theme.avatar || '/images/avatar.png') %>" alt="<%= theme.author || config.author %>" class="avatar-img">
+        <img src="<%= url_for(theme.avatar || '/images/avatar.jpg') %>" alt="<%= theme.author || config.author %>" class="avatar-img" onError="this.onerror=null;this.src='https://ui-avatars.com/api/?name=<%= encodeURIComponent(theme.author || config.author || 'User') %>&background=171717&color=fff';" />
       </a>
       <h1 class="site-title">
         <a href="<%= url_for('/') %>"><%= theme.author || config.author || config.title %></a>

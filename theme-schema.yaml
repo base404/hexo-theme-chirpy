@@ -145,10 +145,10 @@ groups:
         default: []
 
       - name: "about.description"
-        label: "关于页正文 Markdown 描述"
+        label: "独立正文描述 (可选覆盖)"
         type: "textarea"
-        description: "可填写 Markdown 格式的个人经历、技术栈与博客介绍"
-        default: "欢迎来到我的博客！这里记录我的技术探索与日常思考。"
+        description: "可填写 Markdown 格式的个人经历与博客介绍 (留空则自动复用基础配置中的 [网站描述 description])"
+        default: ""
 
   - id: "links"
     label: "友链页面配置 (Friends Links)"
