@@ -27,9 +27,9 @@
       <div class="about-content markdown-body">
         <%- page.content %>
       </div>
-    <% } else if (about.description || theme.description || config.description) { %>
+    <% } else if (about.description) { %>
       <div class="about-content markdown-body">
-        <%- markdown(about.description || theme.description || config.description) %>
+        <%- markdown(about.description) %>
       </div>
     <% } %>
 
