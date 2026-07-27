@@ -77,25 +77,27 @@ groups:
     icon: "globe"
     fields:
       - name: "about.name"
-        label: "关于页显示名称"
+        label: "独立名称 (可选覆盖)"
         type: "text"
-        default: "Your Name"
+        description: "留空则自动复用基础配置中的 [博主名称]"
+        default: ""
 
       - name: "about.avatar"
-        label: "个人头像路径"
+        label: "独立头像路径 (可选覆盖)"
         type: "text"
-        description: "例如: /images/avatar.jpg 或网络图片 URL"
-        default: "/images/avatar.jpg"
+        description: "例如: /images/avatar.jpg (留空则自动复用基础配置中的 [侧边栏头像])"
+        default: ""
+
+      - name: "about.bio"
+        label: "独立签名 (可选覆盖)"
+        type: "text"
+        description: "留空则自动复用基础配置中的 [座右铭 / 签名]"
+        default: ""
 
       - name: "about.role"
         label: "职业 / 角色标签"
         type: "text"
         default: "Developer / Creator"
-
-      - name: "about.bio"
-        label: "一句话简介 / 签名"
-        type: "text"
-        default: "Stay Hungry, Stay Foolish"
 
       - name: "about.skills"
         label: "技能 / 技术栈标签 (Skills)"

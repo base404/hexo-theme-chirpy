@@ -64,14 +64,14 @@ social:
   wechat: ""                        # 微信微信号或二维码 URL (留空不显示)
 
 # ------------------------------------------------------------------------------
-# 5. 关于页面配置 (About Page)
+# 5. 关于页面配置 (About Page - 默认自动复用顶部 [基础信息与博主资料] 的名称、头像与签名)
 # ------------------------------------------------------------------------------
 about:
-  name: "Your Name"
-  avatar: "/images/avatar.jpg"
-  role: "Developer / Creator"
-  bio: "Stay Hungry, Stay Foolish"
-  skills: []                        # 技能胶囊标签，例如: ["JavaScript", "Node.js", "Vue", "Hexo"]
+  # name: ""                          # 自定义关于页名称 (留空自动复用顶层 author)
+  # avatar: ""                        # 自定义关于页头像 (留空自动复用顶层 avatar)
+  # bio: ""                           # 自定义关于页签名 (留空自动复用顶层 subtitle)
+  role: "Developer / Creator"         # 职业 / 角色标签
+  skills: []                          # 技能胶囊标签，例如: ["JavaScript", "Node.js", "Vue", "Hexo"]
   description: "欢迎来到我的博客！这里记录我的技术探索与日常思考。"
 
 # ------------------------------------------------------------------------------

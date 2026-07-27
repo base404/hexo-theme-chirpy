@@ -11,7 +11,7 @@
       <div class="about-hero-info">
         <h2 class="about-name"><%= about.name || theme.author || config.author %></h2>
         <p class="about-title-role"><%= about.role || 'Full Stack Developer / Open Source Enthusiast' %></p>
-        <p class="about-bio"><i class="fa-solid fa-quote-left"></i> <%= about.bio || theme.subtitle || config.subtitle %> <i class="fa-solid fa-quote-right"></i></p>
+        <p class="about-bio"><i class="fa-solid fa-quote-left"></i> <%= about.bio || theme.subtitle || config.subtitle || 'Stay Hungry, Stay Foolish' %> <i class="fa-solid fa-quote-right"></i></p>
 
         <% if (about.skills && about.skills.length > 0) { %>
           <div class="about-skills">
