@@ -4084,6 +4084,63 @@ html[data-scheme="dark"] #waline {
   white-space: nowrap;
 }
 
+/* ===== Modern Pagination Bar Styles ===== */
+.pagination {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 2.5rem !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+.pagination a.page-number,
+.pagination span.page-number,
+.pagination a.extend,
+.pagination span.extend {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  min-width: 38px !important;
+  height: 38px !important;
+  padding: 0 14px !important;
+  font-size: 0.88rem !important;
+  font-weight: 500 !important;
+  color: var(--text-primary, #e4e4e7) !important;
+  background-color: var(--bg-card, #2e2e32) !important;
+  border: 1px solid var(--border-color, #3f3f46) !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+}
+
+.pagination a.page-number:hover,
+.pagination a.extend:hover {
+  border-color: var(--color-accent, #7952b3) !important;
+  color: var(--color-accent, #7952b3) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.pagination .page-number.current {
+  background-color: var(--color-accent, #7952b3) !important;
+  border-color: var(--color-accent, #7952b3) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(121, 82, 179, 0.35) !important;
+}
+
+.pagination .space {
+  color: var(--text-muted, #a1a1aa) !important;
+  padding: 0 4px !important;
+}
+
+
 
 
 

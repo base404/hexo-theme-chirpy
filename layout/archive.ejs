@@ -21,11 +21,13 @@
     <% if (page.total > 1) { %>
       <nav class="pagination">
         <%- paginator({
+          escape: false,
           prev_text: '<i class="fa-solid fa-chevron-left"></i> ' + ((theme.pagination && theme.pagination.prev_text) || '上一页'),
           next_text: ((theme.pagination && theme.pagination.next_text) || '下一页') + ' <i class="fa-solid fa-chevron-right"></i>'
         }) %>
       </nav>
     <% } %>
+
 
   </div>
 </div>
