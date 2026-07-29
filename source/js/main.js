@@ -29,9 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const savedScheme = localStorage.getItem('chirpy_scheme');
-  if (savedScheme) {
+  if (savedScheme && (savedScheme === 'dark' || savedScheme === 'light')) {
     document.documentElement.setAttribute('data-scheme', savedScheme);
+  } else {
+    const hours = new Date().getHours();
+    const timeBasedScheme = (hours >= 18 || hours < 6) ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-scheme', timeBasedScheme);
   }
+
 
   // 3. Mobile Sidebar Drawer Toggle
   const sidebar = document.getElementById('sidebar');

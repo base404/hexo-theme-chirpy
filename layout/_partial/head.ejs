@@ -15,18 +15,18 @@
   (function() {
     try {
       var savedScheme = localStorage.getItem('chirpy_scheme');
-      var defaultScheme = '<%= theme.color_scheme || "dark" %>';
-      if (savedScheme) {
+      if (savedScheme && (savedScheme === 'dark' || savedScheme === 'light')) {
         document.documentElement.setAttribute('data-scheme', savedScheme);
       } else {
-        if (defaultScheme === 'auto') {
-          defaultScheme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
-        }
-        document.documentElement.setAttribute('data-scheme', defaultScheme);
+        // 当地时间 18:00 到次日 06:00 默认夜间模式 (dark)，其余时间段为白天模式 (light)
+        var hours = new Date().getHours();
+        var timeBasedScheme = (hours >= 18 || hours < 6) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-scheme', timeBasedScheme);
       }
     } catch(e) {}
   })();
 </script>
+
 
 <%- theme.head_code || '' %>
 
