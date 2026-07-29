@@ -286,18 +286,25 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.innerHTML = `
         <div class="mermaid-modal-backdrop"></div>
         <div class="mermaid-modal-content">
-          <button class="mermaid-modal-close" title="关闭"><i class="fa-solid fa-xmark"></i></button>
+          <button class="mermaid-modal-close" title="关闭 (Esc)"><i class="fa-solid fa-xmark"></i></button>
           <div class="mermaid-modal-body"></div>
         </div>
       `;
       document.body.appendChild(modal);
 
+      const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      };
+
       modal.querySelector('.mermaid-modal-backdrop')?.addEventListener('click', closeModal);
       modal.querySelector('.mermaid-modal-close')?.addEventListener('click', closeModal);
-    }
 
-    function closeModal() {
-      modal.classList.remove('active');
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
     }
 
     const modalBody = modal.querySelector('.mermaid-modal-body');
@@ -305,15 +312,18 @@ document.addEventListener('DOMContentLoaded', () => {
       modalBody.innerHTML = svgHtml;
       const svgEl = modalBody.querySelector('svg');
       if (svgEl) {
-        svgEl.style.maxWidth = '90vw';
-        svgEl.style.maxHeight = '85vh';
-        svgEl.style.width = 'auto';
-        svgEl.style.height = 'auto';
-        svgEl.style.transform = 'none';
+        svgEl.removeAttribute('style');
+        svgEl.style.width = '100%';
+        svgEl.style.height = '100%';
+        svgEl.style.maxWidth = '100%';
+        svgEl.style.maxHeight = '100%';
+        svgEl.style.objectFit = 'contain';
       }
     }
 
     modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
+
 
 });
