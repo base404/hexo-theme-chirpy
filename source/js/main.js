@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Interactive Mermaid Diagram Scaling & Control Bar (Default 70% Scale)
+  // 6. Interactive Mermaid Diagram Scaling, Drag & Pan Handlers
   const mermaidBlocks = document.querySelectorAll('figure.highlight.mermaid, code.language-mermaid, pre.mermaid, .mermaid');
 
   if (mermaidBlocks.length > 0) {
@@ -180,33 +180,91 @@ document.addEventListener('DOMContentLoaded', () => {
         mermaid.render(id, codeText).then(({ svg }) => {
           svgBox.innerHTML = svg;
 
-          // Default 70% scale reduction as requested
           let currentScale = 0.7;
-          const updateTransform = () => {
+          let translateX = 0;
+          let translateY = 0;
+          let isDragging = false;
+          let startX = 0;
+          let startY = 0;
+          let initialX = 0;
+          let initialY = 0;
+
+          const updateTransform = (smooth = true) => {
             const svgEl = svgBox.querySelector('svg');
             if (svgEl) {
-              svgEl.style.transform = `scale(${currentScale})`;
-              svgEl.style.transformOrigin = 'top center';
-              svgEl.style.transition = 'transform 0.2s ease-out';
+              svgEl.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+              svgEl.style.transformOrigin = 'center center';
+              svgEl.style.transition = smooth && !isDragging ? 'transform 0.2s ease-out' : 'none';
             }
           };
 
-          updateTransform();
+          updateTransform(true);
 
-          // Control toolbar listeners
+          // Mouse Drag & Touch Pan Gestures
+          svgBox.style.cursor = 'grab';
+          svgBox.style.userSelect = 'none';
+
+          const onPointerDown = (e) => {
+            isDragging = true;
+            svgBox.style.cursor = 'grabbing';
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            startX = clientX;
+            startY = clientY;
+            initialX = translateX;
+            initialY = translateY;
+          };
+
+          const onPointerMove = (e) => {
+            if (!isDragging) return;
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const dx = clientX - startX;
+            const dy = clientY - startY;
+            translateX = initialX + dx;
+            translateY = initialY + dy;
+            updateTransform(false);
+          };
+
+          const onPointerUp = () => {
+            if (isDragging) {
+              isDragging = false;
+              svgBox.style.cursor = 'grab';
+            }
+          };
+
+          svgBox.addEventListener('mousedown', onPointerDown);
+          window.addEventListener('mousemove', onPointerMove);
+          window.addEventListener('mouseup', onPointerUp);
+
+          svgBox.addEventListener('touchstart', onPointerDown, { passive: true });
+          window.addEventListener('touchmove', onPointerMove, { passive: true });
+          window.addEventListener('touchend', onPointerUp);
+
+          // Mouse Wheel Zoom
+          svgBox.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            currentScale = Math.min(3.0, Math.max(0.2, currentScale + delta));
+            updateTransform(true);
+          }, { passive: false });
+
+          // Toolbar Buttons
           toolbar.querySelector('.btn-zoom-in')?.addEventListener('click', () => {
-            currentScale = Math.min(2.0, currentScale + 0.15);
-            updateTransform();
+            currentScale = Math.min(3.0, currentScale + 0.15);
+            updateTransform(true);
           });
 
           toolbar.querySelector('.btn-zoom-out')?.addEventListener('click', () => {
             currentScale = Math.max(0.2, currentScale - 0.15);
-            updateTransform();
+            updateTransform(true);
           });
 
           toolbar.querySelector('.btn-reset')?.addEventListener('click', () => {
             currentScale = 0.7;
-            updateTransform();
+            translateX = 0;
+            translateY = 0;
+            updateTransform(true);
           });
 
           toolbar.querySelector('.btn-fullscreen')?.addEventListener('click', () => {
@@ -257,4 +315,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modal.classList.add('active');
   }
+
 });

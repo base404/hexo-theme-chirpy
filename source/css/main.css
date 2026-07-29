@@ -3840,6 +3840,17 @@ html[data-scheme="dark"] #waline {
   --waline-avatar-radius: 50%;
 }
 
+/* ===== Mermaid Interactive Control & Drag Canvas ===== */
+.mermaid-svg-box {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+.mermaid-svg-box:active {
+  cursor: grabbing;
+}
+
+
 
 
 
