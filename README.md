@@ -28,10 +28,10 @@
   <br /><br />
 
   <p align="center">
-    <a href="#-核心特性-key-features"><b>核心特性</b></a> &nbsp;•&nbsp;
+    <a href="#-功能列表-features-list"><b>功能列表</b></a> &nbsp;•&nbsp;
     <a href="#-快速开始-quick-start"><b>快速开始</b></a> &nbsp;•&nbsp;
-    <a href="#-全量-67-种视觉预设库-design-presets"><b>67 种视觉预设</b></a> &nbsp;•&nbsp;
     <a href="#-可视化配置与多语言-schema-i18n"><b>Schema 多语言</b></a> &nbsp;•&nbsp;
+    <a href="#-目录结构-directory-structure"><b>目录结构</b></a> &nbsp;•&nbsp;
     <a href="#-开源许可与致谢-credits"><b>开源致谢</b></a>
   </p>
 
@@ -48,57 +48,35 @@
 
 ---
 
-## 🌟 核心特性 (Key Features)
+## ✨ 功能列表 (Features List)
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🎨 全量内置 67 种 Design System 视觉预设</h3>
-      <ul>
-        <li><b>涵盖全系设计风格</b>：集成了 <a href="https://github.com/bergside/awesome-design-skills">awesome-design-skills</a> 库中所有 67 种设计系统（如 <code>bento</code>, <code>brutalism</code>, <code>glassmorphism</code>, <code>matrix</code>, <code>neon</code>, <code>paper</code>, <code>shadcn</code>, <code>vintage</code> 等）。</li>
-        <li><b>一键动态切换</b>：在 <code>_config.yml</code> 中配置 <code>style_preset: "bento"</code>，或在 <a href="https://github.com/base404/hexo-cms">Hexo CMS</a> 可视化面板中即时无缝预览切换。</li>
-      </ul>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🤖 内置 Agentic Skills 规范 (.agents/skills/)</h3>
-      <ul>
-        <li><b>AI Agent 极速驱动</b>：自带 <code>.agents/skills/</code> 完整设计规范目录。AI 编程助手（如 Antigravity, Claude Code, Cursor）可直接识别并遵从规范进行二次开发。</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🔍 全站标题 JSON 搜索 (Search Scheme A)</h3>
-      <ul>
-        <li><b>全站跨页标题搜索</b>：通过编译期自动输出轻量 <code>search.json</code>，支持实时输入关键字快速弹出全站文章下拉搜索卡片。</li>
-        <li><b>只匹配标题 & 内存级性能</b>：移除了无用的全文字符串载入，显著降低单页 HTML 体积。</li>
-      </ul>
-    </td>
-    <td width="50%" valign="top">
-      <h3>📊 交互式 Mermaid 图表 & 全屏大图拖拽平移</h3>
-      <ul>
-        <li><b>滚轮缩放与鼠标拖拽 (Pan & Zoom)</b>：Mermaid 流程图全屏弹窗支持鼠标按住自由拖拽平移、滚轮 <code>0.2x ~ 5.0x</code> 无级缩放。</li>
-        <li><b>悬浮工具栏</b>：提供放大、缩小、100% 重置复位与 Esc 快捷键关闭。</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🌓 智能日夜间模式 (18:00 ~ 06:00 时间段)</h3>
-      <ul>
-        <li><b>时间段自动判别与防闪烁</b>：Head 内联脚本在 DOM 渲染前判定 local 记录与当地时间（18 点至次日早 6 点默认夜间模式）。</li>
-        <li><b>全站色彩同步</b>：评论区（Waline 暗黑模式）与文章正文彻底自动同步。</li>
-      </ul>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🎛️ Hexo Theme Schema 协议与多语言 (i18n)</h3>
-      <ul>
-        <li><b>双语 Schema 支持</b>：提供 <code>theme-schema.yaml</code> (English) 与 <code>theme-schema_汉语.yaml</code> (汉语)，在 CMS 面板中动态切换语言。</li>
-        <li><b>文章底部导航 (Prev / Next)</b>：原生静态化生成【上一篇 / 下一篇】高颜值跳转卡片。</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+- 🎨 **67 种 Awesome Design System 视觉预设库**
+  - 全量内置 [awesome-design-skills](https://github.com/bergside/awesome-design-skills) 注册库包含的 67 种设计系统风格（包含 `bento`, `brutalism`, `claymorphism`, `glassmorphism`, `material`, `matrix`, `neon`, `paper`, `shadcn`, `vintage` 等）；
+  - 支持在 `_config.yml` 中设置 `style_preset: "bento"`，或在 [Hexo CMS](https://github.com/base404/hexo-cms) 可视化编辑器中一键即时无缝预览与切换。
+- 🤖 **内置 Agentic Skills 系统 (`.agents/skills/`)**
+  - 项目自带 `.agents/skills/` 规范目录，全量内置 67 种 Design System Skill 规则。AI 编程助手（如 Antigravity, Claude Code, Cursor）在开发时可直接自动读取并遵从该设计规范。
+- 🔍 **全站标题 JSON 内存级搜索 (Search Scheme A)**
+  - 静态编译期通过脚本自动输出轻量 `search.json` 索引，支持在右侧栏实时输入关键字，快速弹出全站文章标题下拉匹配卡片；
+  - 采用仅匹配标题与去除正文 DOM 属性策略，显著降低静态 HTML 文件体积，提升首屏加载性能。
+- 📊 **交互式 Mermaid 图表 & 全屏拖拽平移/滚轮缩放**
+  - 完美渲染 Mermaid.js 流程图、时序图与架构图；
+  - 点击流程图展开全屏 Modal 视图，支持鼠标按住自由拖拽平移（Drag & Pan）以及 `0.2x ~ 5.0x` 鼠标滚轮无级自由缩放，配备放大、缩小、100% 快捷复位与 Esc 关闭工具栏。
+- 🌓 **18:00 ~ 06:00 时间段智能日夜间模式**
+  - Head 内联防闪烁脚本在 DOM 渲染前判定用户偏好与当地时间（18:00 至次日早 06:00 自动开启夜间暗黑模式）；
+  - 全站色彩变量深度映射，评论区（Waline 暗黑模式）与文章正文色彩 100% 自动同步。
+- 🎛️ **Hexo Theme Schema 协议与多语言 (i18n)**
+  - 提供 `theme-schema.yaml` (English) 与 `theme-schema_汉语.yaml` (汉语) 双语架构定义文件；
+  - 无缝兼容 [Hexo CMS](https://github.com/base404/hexo-cms) 可视化编辑器，支持在 CMS 弹窗右上角动态切换界面语言。
+- 📖 **文章底部【上一篇 / 下一篇】导航卡片**
+  - 文章页正文下方自动静态生成上一篇与下一篇文章导航卡片；
+  - 具备悬浮微动画与边框高亮，响应式适配移动端与桌面端。
+- 📖 **排版间距美化 (Typography & Spacing)**
+  - 优化段落 `1.8` 行高与段后距，优雅美化 `h1`~`h6` 标题层次边距、炫彩边框引言块 (`blockquote`)、代码块一键快捷复制、表格与 TOC 滚动实影高亮。
+- ⚡ **Zero-CLI 零配置开箱即用 (`v2.0+`)**
+  - 自动处理代码高亮转义，无需手动操作；
+  - 自动路由生成：无需运行 `hexo new page` 手动新建文件，`/categories/`, `/tags/`, `/about/`, `/links/` 开箱即用。
+- 💬 **主流评论系统无缝集成**
+  - 原生支持 Waline、Giscus (GitHub Discussions) 与 Disqus 评论系统。
 
 <br />
 
@@ -152,12 +130,12 @@ npx hexo s
 
 1. 进入 **“主题市场 (Theme Market)”** 选项卡；
 2. 点击 **Chirpy Classic** 主题卡片上的 **【配置】** 按钮；
-3. 在弹窗右上角可下拉切换 **`[ 汉语 ]`** 或 **`[ English (Default) ]`** 对应的界面 Schema 语言；
+3. 在弹窗右上角下拉框中可动态切换 **`[ 汉语 ]`** 或 **`[ English (Default) ]`** 界面语言；
 4. 轻松完成以下配置：
    - 从 67 种预设风格中可视化选择；
    - 技能胶囊标签 (`about.skills`) 动态增删；
    - 友情链接卡片 (`friends`) 对象动态增删与编辑；
-   - 评论系统参数（Waline / Giscus / Disqus）与分页条数控制。
+   - 评论系统参数（Waline / Giscus / Disqus）与每页文章分页数 (`pagination.per_page`)。
 
 <br />
 
