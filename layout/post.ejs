@@ -35,5 +35,27 @@
     </footer>
   <% } %>
 
+  <% if (page.prev || page.next) { %>
+    <nav class="post-navigation">
+      <div class="nav-box nav-prev">
+        <% if (page.prev) { %>
+          <a href="<%= url_for(page.prev.path) %>" rel="prev">
+            <span class="nav-sub"><i class="fa-solid fa-arrow-left"></i> 上一篇</span>
+            <span class="nav-title"><%= page.prev.title || '无标题' %></span>
+          </a>
+        <% } %>
+      </div>
+      <div class="nav-box nav-next">
+        <% if (page.next) { %>
+          <a href="<%= url_for(page.next.path) %>" rel="next">
+            <span class="nav-sub">下一篇 <i class="fa-solid fa-arrow-right"></i></span>
+            <span class="nav-title"><%= page.next.title || '无标题' %></span>
+          </a>
+        <% } %>
+      </div>
+    </nav>
+  <% } %>
+
   <%- partial('_partial/comments') %>
+
 </article>

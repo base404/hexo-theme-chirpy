@@ -120,22 +120,66 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Right Sidebar Live Search Filter (Title Only)
+  // 5. Right Sidebar Global Title Search Dropdown (search.json)
   const searchInput = document.getElementById('sidebar-search-input');
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase().trim();
-      const posts = document.querySelectorAll('.posts-list .post-card');
-      posts.forEach((card) => {
-        const title = card.getAttribute('data-title') || '';
-        if (!q || title.includes(q)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
+  const searchDropdown = document.getElementById('search-results-dropdown');
+  let searchPostsCache = null;
+
+  if (searchInput && searchDropdown) {
+    const fetchSearchPosts = async () => {
+      if (searchPostsCache) return searchPostsCache;
+      try {
+        const rootUrl = window.location.pathname.startsWith('/hexo-theme-chirpy') ? '/hexo-theme-chirpy' : '';
+        const res = await fetch(rootUrl + '/search.json');
+        if (res.ok) {
+          searchPostsCache = await res.json();
+          return searchPostsCache;
         }
-      });
+      } catch (e) {}
+      return [];
+    };
+
+    searchInput.addEventListener('focus', () => {
+      fetchSearchPosts();
+    });
+
+    searchInput.addEventListener('input', async (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      if (!q) {
+        searchDropdown.style.display = 'none';
+        searchDropdown.innerHTML = '';
+        return;
+      }
+
+      const posts = await fetchSearchPosts();
+      const matched = posts.filter((p) => p.title.toLowerCase().includes(q));
+
+      if (matched.length === 0) {
+        searchDropdown.innerHTML = '<div class="search-no-result">未找到匹配的标题文章</div>';
+      } else {
+        searchDropdown.innerHTML = matched
+          .slice(0, 10)
+          .map(
+            (p) => `
+          <a href="${p.path}" class="search-result-item">
+            <span class="search-result-title">${p.title}</span>
+            ${p.date ? `<span class="search-result-date">${p.date}</span>` : ''}
+          </a>
+        `
+          )
+          .join('');
+      }
+
+      searchDropdown.style.display = 'block';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!searchInput.contains(e.target as Node) && !searchDropdown.contains(e.target as Node)) {
+        searchDropdown.style.display = 'none';
+      }
     });
   }
+
 
 
   // 6. Interactive Mermaid Diagram Scaling, Drag & Pan Handlers
