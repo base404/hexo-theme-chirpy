@@ -3826,5 +3826,20 @@ html[data-preset="sketch"] .post-card, html[data-preset="doodle"] .post-card {
   font-weight: 600;
 }
 
+/* ===== Waline Comments Dark Mode & Theme Adaptation ===== */
+html[data-scheme="dark"] #waline {
+  --waline-theme-color: var(--color-accent, #7952b3);
+  --waline-active-color: var(--color-accent, #7952b3);
+  --waline-bg-color: var(--bg-card, #2e2e32);
+  --waline-bg-color-light: var(--bg-secondary, #252529);
+  --waline-border-color: var(--border-color, #3f3f46);
+  --waline-disable-bg-color: #1b1b1e;
+  --waline-font-color: var(--text-primary, #e4e4e7);
+  --waline-info-color: var(--text-muted, #a1a1aa);
+  --waline-box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --waline-avatar-radius: 50%;
+}
+
+
 
 

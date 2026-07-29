@@ -11,4 +11,22 @@
 
 <link rel="stylesheet" href="<%= url_for('/css/main.css') %>">
 
+<script>
+  (function() {
+    try {
+      var savedScheme = localStorage.getItem('chirpy_scheme');
+      var defaultScheme = '<%= theme.color_scheme || "dark" %>';
+      if (savedScheme) {
+        document.documentElement.setAttribute('data-scheme', savedScheme);
+      } else {
+        if (defaultScheme === 'auto') {
+          defaultScheme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-scheme', defaultScheme);
+      }
+    } catch(e) {}
+  })();
+</script>
+
 <%- theme.head_code || '' %>
+
