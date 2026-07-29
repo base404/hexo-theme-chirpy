@@ -111,7 +111,32 @@ groups:
         description: "例如: /images/wechat_qr.png 或微信号 (留空则不显示图标)"
         default: ""
 
+  - id: "pagination"
+    label: "文章列表与分页设置"
+    icon: "list"
+    fields:
+      - name: "pagination.per_page"
+        label: "每页显示文章数量 (per_page)"
+        type: "number"
+        description: "首页及归档/分类/标签列表每页最多展示的文章卡片条数 (推荐 6-12)"
+        default: 6
+        min: 1
+        max: 50
+
+      - name: "pagination.prev_text"
+        label: "『上一页』按钮显示文本"
+        type: "text"
+        description: "分页导航栏中上翻页按钮显示的自定义文字"
+        default: "上一页"
+
+      - name: "pagination.next_text"
+        label: "『下一页』按钮显示文本"
+        type: "text"
+        description: "分页导航栏中下翻页按钮显示的自定义文字"
+        default: "下一页"
+
   - id: "about"
+
     label: "关于页面配置 (About Page)"
     icon: "globe"
     fields:
