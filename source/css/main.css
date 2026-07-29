@@ -3892,41 +3892,52 @@ html[data-scheme="dark"] #waline {
   overflow: hidden;
 }
 
-.mermaid-modal-close {
+.mermaid-modal-toolbar {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: var(--bg-secondary, rgba(255, 255, 255, 0.1));
-  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
-  color: var(--text-primary, #ffffff);
-  font-size: 1.1rem;
+  top: 14px;
+  right: 14px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 100001;
-  transition: all 0.2s ease;
+  gap: 6px;
+  background: var(--bg-secondary, rgba(0, 0, 0, 0.6));
+  padding: 6px 10px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100002;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.mermaid-modal-close:hover {
-  background: #ef4444;
-  color: #ffffff;
-  border-color: #ef4444;
+.mermaid-modal-toolbar .mermaid-btn {
+  font-size: 0.82rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.mermaid-modal-toolbar .btn-modal-close:hover {
+  background: #ef4444 !important;
+  color: #fff !important;
 }
 
 .mermaid-modal-body {
   width: 100%;
   height: 100%;
-  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  padding: 3rem 1.5rem 1.5rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   box-sizing: border-box;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
 }
+
+.mermaid-modal-body:active {
+  cursor: grabbing;
+}
+
 
 .mermaid-modal-body svg {
   width: 100% !important;

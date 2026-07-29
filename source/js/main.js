@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(script);
   }
 
-  // Fullscreen Modal for Mermaid SVG
+  // Fullscreen Modal for Mermaid SVG with Pan, Drag & Wheel Zoom
   function openMermaidModal(svgHtml) {
     let modal = document.getElementById('mermaid-modal');
     if (!modal) {
@@ -286,7 +286,12 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.innerHTML = `
         <div class="mermaid-modal-backdrop"></div>
         <div class="mermaid-modal-content">
-          <button class="mermaid-modal-close" title="关闭 (Esc)"><i class="fa-solid fa-xmark"></i></button>
+          <div class="mermaid-modal-toolbar">
+            <button class="mermaid-btn btn-modal-zoom-in" title="放大"><i class="fa-solid fa-magnifying-glass-plus"></i> 放大</button>
+            <button class="mermaid-btn btn-modal-zoom-out" title="缩小"><i class="fa-solid fa-magnifying-glass-minus"></i> 缩小</button>
+            <button class="mermaid-btn btn-modal-reset" title="重置位置与缩放"><i class="fa-solid fa-rotate-left"></i> 重置 100%</button>
+            <button class="mermaid-btn btn-modal-close" title="关闭 (Esc)"><i class="fa-solid fa-xmark"></i></button>
+          </div>
           <div class="mermaid-modal-body"></div>
         </div>
       `;
@@ -298,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       modal.querySelector('.mermaid-modal-backdrop')?.addEventListener('click', closeModal);
-      modal.querySelector('.mermaid-modal-close')?.addEventListener('click', closeModal);
+      modal.querySelector('.btn-modal-close')?.addEventListener('click', closeModal);
 
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
@@ -311,19 +316,96 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalBody) {
       modalBody.innerHTML = svgHtml;
       const svgEl = modalBody.querySelector('svg');
+
       if (svgEl) {
         svgEl.removeAttribute('style');
-        svgEl.style.width = '100%';
-        svgEl.style.height = '100%';
         svgEl.style.maxWidth = '100%';
         svgEl.style.maxHeight = '100%';
+        svgEl.style.width = 'auto';
+        svgEl.style.height = 'auto';
         svgEl.style.objectFit = 'contain';
+
+        let mScale = 1.0;
+        let mTx = 0;
+        let mTy = 0;
+        let mIsDragging = false;
+        let mStartX = 0;
+        let mStartY = 0;
+        let mInitX = 0;
+        let mInitY = 0;
+
+        const updateModalTransform = (smooth = true) => {
+          svgEl.style.transform = `translate(${mTx}px, ${mTy}px) scale(${mScale})`;
+          svgEl.style.transformOrigin = 'center center';
+          svgEl.style.transition = smooth && !mIsDragging ? 'transform 0.2s ease-out' : 'none';
+        };
+
+        updateModalTransform(true);
+
+        const onModalPointerDown = (e) => {
+          mIsDragging = true;
+          modalBody.style.cursor = 'grabbing';
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          mStartX = clientX;
+          mStartY = clientY;
+          mInitX = mTx;
+          mInitY = mTy;
+        };
+
+        const onModalPointerMove = (e) => {
+          if (!mIsDragging) return;
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          const dx = clientX - mStartX;
+          const dy = clientY - mStartY;
+          mTx = mInitX + dx;
+          mTy = mInitY + dy;
+          updateModalTransform(false);
+        };
+
+        const onModalPointerUp = () => {
+          if (mIsDragging) {
+            mIsDragging = false;
+            modalBody.style.cursor = 'grab';
+          }
+        };
+
+        modalBody.onmousedown = onModalPointerDown;
+        modalBody.ontouchstart = onModalPointerDown;
+        window.onmousemove = (e) => { if (mIsDragging) onModalPointerMove(e); };
+        window.ontouchmove = (e) => { if (mIsDragging) onModalPointerMove(e); };
+        window.onmouseup = onModalPointerUp;
+        window.ontouchend = onModalPointerUp;
+
+        modalBody.onwheel = (e) => {
+          e.preventDefault();
+          const delta = e.deltaY > 0 ? -0.15 : 0.15;
+          mScale = Math.min(5.0, Math.max(0.2, mScale + delta));
+          updateModalTransform(true);
+        };
+
+        modal.querySelector('.btn-modal-zoom-in').onclick = () => {
+          mScale = Math.min(5.0, mScale + 0.2);
+          updateModalTransform(true);
+        };
+        modal.querySelector('.btn-modal-zoom-out').onclick = () => {
+          mScale = Math.max(0.2, mScale - 0.2);
+          updateModalTransform(true);
+        };
+        modal.querySelector('.btn-modal-reset').onclick = () => {
+          mScale = 1.0;
+          mTx = 0;
+          mTy = 0;
+          updateModalTransform(true);
+        };
       }
     }
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
+
 
 
 });
