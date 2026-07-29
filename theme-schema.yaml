@@ -124,16 +124,17 @@ groups:
         max: 50
 
       - name: "pagination.prev_text"
-        label: "『上一页』按钮显示文本"
+        label: "『上一页』按钮显示文本 (Prev Button Label)"
         type: "text"
         description: "分页导航栏中上翻页按钮显示的自定义文字"
-        default: "上一页"
+        default: "Previous"
 
       - name: "pagination.next_text"
-        label: "『下一页』按钮显示文本"
+        label: "『下一页』按钮显示文本 (Next Button Label)"
         type: "text"
         description: "分页导航栏中下翻页按钮显示的自定义文字"
-        default: "下一页"
+        default: "Next"
+
 
   - id: "about"
 
@@ -173,7 +174,7 @@ groups:
         label: "关于页正文 Markdown 描述"
         type: "textarea"
         description: "可填写 Markdown 格式的个人经历、技术栈与博客介绍"
-        default: "欢迎来到我的博客！这里记录我的技术探索与日常思考。"
+        default: "Welcome to my blog! Here I share my technical explorations, code snippets, and daily thoughts."
 
   - id: "links"
     label: "友链页面配置 (Friends Links)"
@@ -183,7 +184,13 @@ groups:
         label: "申请友链说明 (Markdown 格式)"
         type: "textarea"
         description: "在友链页面卡片下方显示的申请规则说明"
-        default: "欢迎交换友情链接！请在此页面下方留言或按照格式申请。"
+        default: |
+          Welcome to exchange friend links! Please leave a message or apply using the format below:
+          - **Site Name**: My Blog
+          - **Site URL**: https://yourdomain.com
+          - **Avatar URL**: https://yourdomain.com/avatar.jpg
+          - **Description**: Sharing technology and life
+
 
       - name: "friends"
         label: "友情链接列表"
