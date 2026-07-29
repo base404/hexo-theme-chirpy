@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Right Sidebar Live Search Filter
+  // 5. Right Sidebar Live Search Filter (Title Only)
   const searchInput = document.getElementById('sidebar-search-input');
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
@@ -128,8 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const posts = document.querySelectorAll('.posts-list .post-card');
       posts.forEach((card) => {
         const title = card.getAttribute('data-title') || '';
-        const content = card.getAttribute('data-content') || '';
-        if (!q || title.includes(q) || content.includes(q)) {
+        if (!q || title.includes(q)) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
@@ -137,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
 
   // 6. Interactive Mermaid Diagram Scaling, Drag & Pan Handlers
   const mermaidBlocks = document.querySelectorAll('figure.highlight.mermaid, code.language-mermaid, pre.mermaid, .mermaid');

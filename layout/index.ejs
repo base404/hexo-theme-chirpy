@@ -1,8 +1,9 @@
 <div class="posts-list">
   <% page.posts.forEach(function(post){ %>
     <% const coverImg = post.cover || post.image; %>
-    <article class="post-card <%= coverImg ? 'has-cover' : '' %>" data-title="<%= (post.title || '').toLowerCase() %>" data-content="<%= strip_html(post.content || '').toLowerCase() %>">
+    <article class="post-card <%= coverImg ? 'has-cover' : '' %>" data-title="<%= (post.title || '').toLowerCase() %>">
       <a href="<%= url_for(post.path) %>" class="post-card-overlay-link" aria-label="<%= post.title %>"></a>
+
 
       <div class="post-card-body">
         <h2 class="post-card-title">
