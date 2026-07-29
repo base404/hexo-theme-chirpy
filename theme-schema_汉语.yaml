@@ -1,0 +1,337 @@
+schema_version: "1.0"
+
+meta:
+  name: "chirpy"
+  display_name: "Chirpy Classic (汉语)"
+  description: "简约、高颜值且功能丰富的 Hexo 技术博客主题（零配置开箱即用，自动路由与 Mermaid 绘图）"
+  version: "2.0.0"
+  author: "Hexo CMS Team"
+  homepage: "https://github.com/base404/hexo-theme-chirpy"
+  tags: ["三栏布局", "Dark Mode", "TOC", "响应式", "代码复制", "进度条", "友链", "关于页面", "评论支持"]
+
+groups:
+  - id: "basic"
+    label: "基础信息与个人资料"
+    icon: "globe"
+    fields:
+      - name: "title"
+        label: "网站主标题 (title)"
+        type: "text"
+        description: "浏览器标签页、移动端顶栏和站点顶部显示的标题 (留空则继承 Hexo 全局 config.title)"
+        default: ""
+
+      - name: "subtitle"
+        label: "副标题 / 座右铭 (subtitle)"
+        type: "text"
+        description: "侧边栏头像下方的斜体签名 (留空则继承 Hexo 全局 config.subtitle)"
+        default: "Sharing thoughts and knowledge"
+
+      - name: "description"
+        label: "网站描述 (description)"
+        type: "textarea"
+        description: "网站全局 SEO 描述信息 (留空则继承 Hexo 全局 config.description)"
+        default: ""
+
+      - name: "author"
+        label: "博主 / 作者名称 (author)"
+        type: "text"
+        description: "侧边栏显示的博主名字 (留空则继承 Hexo 全局 config.author)"
+        default: ""
+
+      - name: "avatar"
+        label: "侧边栏头像 URL / 相对路径 (avatar)"
+        type: "text"
+        description: "主题路径下的相对图片 (如 /images/avatar.jpg) 或网络图片 URL"
+        default: "/images/avatar.jpg"
+
+      - name: "favicon"
+        label: "站点 Favicon (favicon)"
+        type: "text"
+        description: "浏览器标签页小图标路径 (支持文件上传与网络 URL)"
+        default: "/favicon.ico"
+
+      - name: "language"
+        label: "站点语言 (language)"
+        type: "select"
+        description: "HTML lang 标签与界面语言 (留空则继承 Hexo 全局 config.language)"
+        default: ""
+        options:
+          - value: ""
+            label: "默认继承 Hexo 全局配置"
+          - value: "zh-CN"
+            label: "简体中文 (zh-CN)"
+          - value: "zh-TW"
+            label: "繁體中文 (zh-TW)"
+          - value: "en"
+            label: "English (en)"
+
+      - name: "timezone"
+        label: "时区设置 (timezone)"
+        type: "text"
+        description: "例如: Asia/Shanghai (留空则继承 Hexo 全局 config.timezone)"
+        default: ""
+
+      - name: "url"
+        label: "博客主网址 (url)"
+        type: "text"
+        description: "例如: https://yourdomain.com (留空则继承 Hexo 全局 config.url)"
+        default: ""
+
+  - id: "social"
+    label: "左侧栏社交联系方式 (配置后才显示)"
+    icon: "share-2"
+    fields:
+      - name: "social.github"
+        label: "GitHub 个人主页 URL"
+        type: "text"
+        description: "例如: https://github.com/your-username (留空则不显示图标)"
+        default: "https://github.com"
+
+      - name: "social.rss"
+        label: "RSS 订阅 Feed 路径"
+        type: "text"
+        description: "例如: /atom.xml (留空则不显示图标)"
+        default: "/atom.xml"
+
+      - name: "social.email"
+        label: "电子邮箱 (Email)"
+        type: "text"
+        description: "例如: mailto:your_name@example.com 或 邮箱地址 (留空则不显示图标)"
+        default: ""
+
+      - name: "social.qq"
+        label: "QQ 号码 / 联系链接"
+        type: "text"
+        description: "例如: 123456789 或 tencent 临时会话链接 (留空则不显示图标)"
+        default: ""
+
+      - name: "social.wechat"
+        label: "微信微信号 / 二维码图片路径"
+        type: "text"
+        description: "例如: /images/wechat_qr.png 或微信号 (留空则不显示图标)"
+        default: ""
+
+  - id: "pagination"
+    label: "文章列表与分页设置"
+    icon: "list"
+    fields:
+      - name: "pagination.per_page"
+        label: "每页显示文章数量 (per_page)"
+        type: "number"
+        description: "首页及归档/分类/标签列表每页最多展示的文章卡片条数 (推荐 6-12)"
+        default: 6
+        min: 1
+        max: 50
+
+      - name: "pagination.prev_text"
+        label: "『上一页』按钮显示文本 (Prev Button Label)"
+        type: "text"
+        description: "分页导航栏中上翻页按钮显示的自定义文字"
+        default: "Previous"
+
+      - name: "pagination.next_text"
+        label: "『下一页』按钮显示文本 (Next Button Label)"
+        type: "text"
+        description: "分页导航栏中下翻页按钮显示的自定义文字"
+        default: "Next"
+
+  - id: "about"
+    label: "关于页面配置 (About Page)"
+    icon: "globe"
+    fields:
+      - name: "about.name"
+        label: "独立名称 (可选覆盖)"
+        type: "text"
+        description: "留空则自动复用基础配置中的 [博主名称]"
+        default: ""
+
+      - name: "about.avatar"
+        label: "独立头像路径 (可选覆盖)"
+        type: "text"
+        description: "例如: /images/avatar.jpg (留空则自动复用基础配置中的 [侧边栏头像])"
+        default: ""
+
+      - name: "about.bio"
+        label: "独立签名 (可选覆盖)"
+        type: "text"
+        description: "留空则自动复用基础配置中的 [座右铭 / 签名]"
+        default: ""
+
+      - name: "about.role"
+        label: "职业 / 角色标签"
+        type: "text"
+        default: "Developer / Creator"
+
+      - name: "about.skills"
+        label: "技能 / 技术栈标签 (Skills)"
+        type: "tags"
+        description: "关于页展示的个人技能胶囊标签列表"
+        default: []
+
+      - name: "about.description"
+        label: "关于页正文 Markdown 描述"
+        type: "textarea"
+        description: "可填写 Markdown 格式的个人经历、技术栈与博客介绍"
+        default: "Welcome to my blog! Here I share my technical explorations, code snippets, and daily thoughts."
+
+  - id: "links"
+    label: "友链页面配置 (Friends Links)"
+    icon: "globe"
+    fields:
+      - name: "links_apply_tip"
+        label: "申请友链说明 (Markdown 格式)"
+        type: "textarea"
+        description: "在友链页面卡片下方显示的申请规则说明"
+        default: |
+          Welcome to exchange friend links! Please leave a message or apply using the format below:
+          - **Site Name**: My Blog
+          - **Site URL**: https://yourdomain.com
+          - **Avatar URL**: https://yourdomain.com/avatar.jpg
+          - **Description**: Sharing technology and life
+
+      - name: "friends"
+        label: "友情链接列表"
+        type: "array"
+        description: "动态配置友链项目列表（可新增、删除与编辑名称、链接、头像和描述）"
+        default:
+          - name: "Hexo 官方文档"
+            url: "https://hexo.io"
+            avatar: "https://hexo.io/icon/favicon-192x192.png"
+            desc: "快速、简洁且高效的静态博客生成框架。"
+          - name: "AirboZH 的博客"
+            url: "https://www.airbozh.cn"
+            avatar: "https://www.airbozh.cn/images/avatar.png"
+            desc: "Chirpy 主题原作者与前端技术沉淀。"
+          - name: "GitHub"
+            url: "https://github.com"
+            avatar: "https://github.githubassets.com/favicons/favicon.svg"
+            desc: "全球最大的开源代码托管与协作平台。"
+
+  - id: "style"
+    label: "外观与视觉风格"
+    icon: "palette"
+    fields:
+      - name: "style_preset"
+        label: "设计预设风格 (Preset)"
+        type: "select"
+        description: "基于 awesome-design-skills 挑选的最佳配色方案"
+        default: "chirpy"
+        options:
+          - value: "chirpy"
+            label: "Chirpy Classic (经典暗极灰 + 紫禁青)"
+          - value: "agentic"
+            label: "Agentic (对话式 AI 界面)"
+          - value: "bento"
+            label: "Bento (便当盒模块网格)"
+          - value: "brutalism"
+            label: "Brutalism (粗犷主义反设计)"
+          - value: "matrix"
+            label: "Matrix (极客黑客绿字)"
+          - value: "paper"
+            label: "Paper (纸张质感)"
+          - value: "glassmorphism"
+            label: "Glassmorphism (磨砂玻璃质感)"
+
+      - name: "color_scheme"
+        label: "主题明暗模式"
+        type: "select"
+        description: "控制页面的默认色彩模式"
+        default: "auto"
+        options:
+          - value: "auto"
+            label: "跟随系统 (Auto System)"
+          - value: "light"
+            label: "默认浅色 (Light)"
+          - value: "dark"
+            label: "默认深色 (Dark)"
+
+      - name: "accent_color"
+        label: "品牌强调色 (Accent)"
+        type: "color"
+        description: "链接、选中态高亮与按钮强调色"
+        default: "#7952b3"
+
+  - id: "features"
+    label: "交互功能开关"
+    icon: "sliders"
+    fields:
+      - name: "toc_enabled"
+        label: "文章 TOC 悬浮目录"
+        type: "switch"
+        description: "在文章页右侧悬浮显示层次化的标题导航目录"
+        default: true
+
+      - name: "reading_progress"
+        label: "阅读进度条"
+        type: "switch"
+        description: "在页面顶部显示实时滚动阅读百分比条"
+        default: true
+
+      - name: "code_copy"
+        label: "代码块一键复制按钮"
+        type: "switch"
+        description: "在所有代码高亮块右上角生成快捷复制图标"
+        default: true
+
+      - name: "per_page"
+        label: "首页每页显示文章数"
+        type: "number"
+        default: 10
+        min: 1
+        max: 50
+
+  - id: "comments"
+    label: "评论系统设置"
+    icon: "message-square"
+    fields:
+      - name: "comments_enabled"
+        label: "启用评论区"
+        type: "switch"
+        description: "开启后将在文章、友链及关于页面底部显示评论框"
+        default: false
+
+      - name: "comments_provider"
+        label: "评论服务提供商"
+        type: "select"
+        default: "waline"
+        options:
+          - value: "waline"
+            label: "Waline (推荐：轻量美观全能)"
+          - value: "giscus"
+            label: "Giscus (GitHub Discussions)"
+          - value: "disqus"
+            label: "Disqus"
+
+      - name: "waline_server_url"
+        label: "Waline 服务端 URL"
+        type: "text"
+        description: "只需填写 Waline 服务端根域名 URL (例如: https://blog-waline...vercel.app)，无需带 /comment 或参数"
+        default: ""
+
+      - name: "disqus_shortname"
+        label: "Disqus Shortname"
+        type: "text"
+        default: ""
+
+      - name: "giscus_repo"
+        label: "Giscus 仓库 (owner/repo)"
+        type: "text"
+        default: ""
+
+  - id: "custom_code"
+    label: "自定义代码注入"
+    icon: "code"
+    fields:
+      - name: "head_code"
+        label: "<head> 注入代码"
+        type: "code"
+        language: "html"
+        description: "自定义注入到页面 <head> 区域的统计脚本或 CSS"
+        default: ""
+
+      - name: "footer_code"
+        label: "页脚 </body> 注入代码"
+        type: "code"
+        language: "html"
+        description: "自定义注入到页面尾部的 JS 扩展"
+        default: ""
