@@ -174,10 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('click', (e) => {
-      if (!searchInput.contains(e.target as Node) && !searchDropdown.contains(e.target as Node)) {
+      if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) {
         searchDropdown.style.display = 'none';
       }
     });
+
   }
 
 
