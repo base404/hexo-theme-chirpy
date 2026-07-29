@@ -10,13 +10,12 @@
   <p align="center">
     <b>简约、高颜值且功能丰富的 Hexo 极简技术博客主题</b>
     <br />
-    <sub><i>Zero-CLI Out-of-the-Box Architecture with 67 Awesome Design Skills Presets, Multi-Language Schema & Interactive Mermaid Scaling</i></sub>
+    <sub><i>Zero-CLI Out-of-the-Box Architecture with 67 Visual Design Presets, Multi-Language Schema & Interactive Mermaid Scaling</i></sub>
   </p>
 
   <p align="center">
     <a href="https://github.com/base404/hexo-theme-chirpy/releases"><img src="https://img.shields.io/badge/version-2.2.0-7952b3.svg?style=for-the-badge&logo=git&logoColor=white" alt="Version"></a>
     <a href="https://hexo.io/"><img src="https://img.shields.io/badge/Hexo-%3E%3D%205.0.0-E0234E.svg?style=for-the-badge&logo=hexo&logoColor=white" alt="Hexo"></a>
-    <a href="https://github.com/bergside/awesome-design-skills"><img src="https://img.shields.io/badge/Design%20Skills-67%20Presets-9333EA.style=for-the-badge&logo=artstation&logoColor=white" alt="Awesome Design Skills"></a>
     <a href="https://github.com/base404/hexo-cms"><img src="https://img.shields.io/badge/Hexo%20CMS-Schema%20i18n-10B981.svg?style=for-the-badge" alt="Schema i18n"></a>
     <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License"></a>
   </p>
@@ -43,18 +42,15 @@
 
 > [!NOTE]
 > **🎨 设计致谢与借鉴声明 (Credits & Inspiration)**  
-> 本主题的整体版式排版、视觉美学风格与 HSL 配色方案深度借鉴汲取自 **[AirboZH / halo-theme-chirpy](https://github.com/airbozh/halo-theme-chirpy)**。在此对原作者 [AirboZH](https://www.airbozh.cn/) 为前端开源社区贡献的优秀排版设计致以诚挚的感谢！  
-> 同时感谢 **[bergside / awesome-design-skills](https://github.com/bergside/awesome-design-skills)** 为本主题提供丰富全面的 67 种 Design System 预设与 Agent Skills。
+> 本主题的整体版式排版、视觉美学风格与 HSL 配色方案深度借鉴汲取自 **[AirboZH / halo-theme-chirpy](https://github.com/airbozh/halo-theme-chirpy)**。在此对原作者 [AirboZH](https://www.airbozh.cn/) 为前端开源社区贡献的优秀排版设计致以诚挚的感谢！
 
 ---
 
 ## ✨ 功能列表 (Features List)
 
-- 🎨 **67 种 Awesome Design System 视觉预设库**
-  - 全量内置 [awesome-design-skills](https://github.com/bergside/awesome-design-skills) 注册库包含的 67 种设计系统风格（包含 `bento`, `brutalism`, `claymorphism`, `glassmorphism`, `material`, `matrix`, `neon`, `paper`, `shadcn`, `vintage` 等）；
+- 🎨 **67 种视觉预设库 (Design Presets)**
+  - 全量内置 67 种设计系统风格（包含 `bento`, `brutalism`, `claymorphism`, `glassmorphism`, `material`, `matrix`, `neon`, `paper`, `shadcn`, `vintage` 等）；
   - 支持在 `_config.yml` 中设置 `style_preset: "bento"`，或在 [Hexo CMS](https://github.com/base404/hexo-cms) 可视化编辑器中一键即时无缝预览与切换。
-- 🤖 **内置 Agentic Skills 系统 (`.agents/skills/`)**
-  - 项目自带 `.agents/skills/` 规范目录，全量内置 67 种 Design System Skill 规则。AI 编程助手（如 Antigravity, Claude Code, Cursor）在开发时可直接自动读取并遵从该设计规范。
 - 🔍 **全站标题 JSON 内存级搜索 (Search Scheme A)**
   - 静态编译期通过脚本自动输出轻量 `search.json` 索引，支持在右侧栏实时输入关键字，快速弹出全站文章标题下拉匹配卡片；
   - 采用仅匹配标题与去除正文 DOM 属性策略，显著降低静态 HTML 文件体积，提升首屏加载性能。
@@ -143,7 +139,6 @@ npx hexo s
 
 ```text
 hexo-theme-chirpy/
-├── .agents/skills/           # 67 种 Design System 预设与 AI Skills 规则
 ├── layout/                   # EJS 模板 (index, post, page, archive, category, tag, _partial)
 ├── scripts/                  # Hexo 插件脚本
 │   ├── chirpy_auto_init.js   # 零配置自动路由与全局过滤
@@ -164,5 +159,4 @@ hexo-theme-chirpy/
 ## 📜 开源许可与致谢 (License & Credits)
 
 - **Layout & Design Credit**: Inspired by [halo-theme-chirpy](https://github.com/airbozh/halo-theme-chirpy) created by [AirboZH](https://github.com/airbozh).
-- **Design System Skills Credit**: Integrated from [awesome-design-skills](https://github.com/bergside/awesome-design-skills) created by [bergside](https://github.com/bergside).
 - **License**: Released under the [MIT License](./LICENSE).
